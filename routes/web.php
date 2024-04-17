@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/laravel_version', function () {
     return view('welcome');
 });
 
