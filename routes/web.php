@@ -23,7 +23,15 @@ Route::middleware([
 
     Route::get('/potholes', [PotholesController::class, 'index'])->name('potholes.index');
 
+    //Settings
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+
 });
 
-//Settings
-Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+Route::get('/new-signin', function () {
+    return view('new-signin');
+});
+
+Route::get('/new-signup', function () {
+    return view('new-signup');
+});

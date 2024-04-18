@@ -63,5 +63,19 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="{{ route('settings.index') }}"><i class="material-icons-two-tone">settings</i>Settings</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <form method="POST" action="{{ route('logout') }}" x-data>
+                @csrf
+
+                <x-dropdown-link href="{{ route('logout') }}"
+                         @click.prevent="$root.submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>
+        </li>
     </ul>
 </div>
