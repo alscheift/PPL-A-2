@@ -25,6 +25,7 @@
     <link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="../../assets/plugins/pace/pace.css" rel="stylesheet">
+    <link href="../../assets/plugins/datatables/datatables.min.css" rel="stylesheet">
     @livewireStyles
 
     
