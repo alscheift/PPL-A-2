@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SettingsController;
+
 
 Route::get('/', function () {
     return view('index');
@@ -19,3 +21,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+//Settings
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
