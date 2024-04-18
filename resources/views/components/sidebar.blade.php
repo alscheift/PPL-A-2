@@ -15,10 +15,10 @@
             Apps
         </li>
         <li class="active-page">
-            <a href="#" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+            <a href="/" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
         <li>
-            <a href="{{ route('settings.index') }}"><i class="material-icons-two-tone">settings</i>Settings</a>
+            <a href="{{ route('potholes.index') }}"><i class="material-icons-two-tone">settings</i>Potholes</a>
         </li>
         <li>
             <a href="#"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>

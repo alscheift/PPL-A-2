@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
-
+use App\Http\Controllers\PotholesController;
 
 Route::get('/', function () {
     return view('index');
@@ -20,6 +20,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/potholes', [PotholesController::class, 'index'])->name('potholes.index');
+
 });
 
 //Settings
