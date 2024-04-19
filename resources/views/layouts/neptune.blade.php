@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Title -->
-    <title>{{ $title ?? 'PPL2-Kelas A' }}</title>
+    <title>{{ $title ?? config('app.title') }}</title>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
