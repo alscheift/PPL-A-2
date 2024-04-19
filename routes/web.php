@@ -4,9 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PotholesController;
 
-Route::get('/laravel_version', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('index');
 });
+
+Route::get('/form', function () {
+    return view('form');
 
 Route::get('/laravel_version', function () {
     return view('welcome');
