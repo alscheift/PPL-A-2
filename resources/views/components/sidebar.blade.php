@@ -1,12 +1,6 @@
 <div class="logo">
     <!-- <a href="index.html" class="logo-icon"><span class="logo-text">Neptune</span></a> -->
-    <a href="#" class="logo-icon"><span class="logo-text">RoadDetection</span></a>
-    <div class="sidebar-user-switcher user-activity-online">
-        <a href="#">
-            <img src="../../assets/images/avatars/avatar.png">
-            <span class="activity-indicator"></span>
-            <span class="user-info-text">Chloe<br><span class="user-state-info">On a call</span></span>
-        </a>
+    <a href="#" class="logo-icon">RoadDetection</a>
     </div>
 </div>
 <div class="app-menu">
@@ -18,7 +12,7 @@
             <a href="/" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
         <li>
-            <a href="{{ route('potholes.index') }}"><i class="material-icons-two-tone">settings</i>Potholes</a>
+            <a href="/form"><i class="material-icons-two-tone">edit</i>Lapor Pothole</a>
         </li>
         <li>
             <a href="#"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>
