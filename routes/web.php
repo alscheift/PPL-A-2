@@ -4,22 +4,31 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PotholesController;
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/laravel_version', function () {
+    return view('welcome');
 });
 
 Route::get('/laravel_version', function () {
     return view('welcome');
 });
 
+// Auth Route
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    Route::get('/', function () {
+        return view('index');
+    })->name('dashboard');;
+
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('index');
     })->name('dashboard');
+
+    Route::get('/default_dashboard', function () {
+        return view('dashboard');
+    });
 
     Route::get('/potholes', [PotholesController::class, 'index'])->name('potholes.index');
 
