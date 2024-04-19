@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::get('/form', function () {
     return view('form');
+});
 
 Route::get('/laravel_version', function () {
     return view('welcome');
