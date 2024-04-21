@@ -6,6 +6,7 @@
 
 @section('styles')
 <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet" >
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endsection
 
 @section('appcontent')
@@ -18,50 +19,40 @@
                     </div>
                 </div>
             </div>
-                <form class="row g-3">
+                <form method='POST' action="{{Route('potholes.store')}}" class="dropzone needsclick" enctype="multipart/form-data" class="row g-3">
+                    @csrf
                     <div class="col-12">
                         <label for="inputMap" class="form-label">Lokasi Pothole</label>
                         <div id="map" style="height: 300px; width: 100%;"></div>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputLat" class="form-label">Latitude</label>
-                        <input type="text" class="form-control" id="inputLat" placeholder="Klik lokasi pada peta" readonly>
+                        <label for="lat" class="form-label">Latitude</label>
+                        <input type="text" class="form-control" name="lat" id="lat" placeholder="Klik lokasi pada peta" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputLong" class="form-label">Longitude</label>
-                        <input type="text" class="form-control" id="inputLong" placeholder="Klik lokasi pada peta" readonly>
+                        <label for="long" class="form-label">Longitude</label>
+                        <input type="text" class="form-control" name="long" id="long" placeholder="Klik lokasi pada peta" readonly>
                     </div>
                     <div class="col-12">
-                        <label for="inputDesc" class="form-label">Deskripsi</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Masukkan keterangan terkait kerusakan jalan">
+                        <label for="desc" class="form-label">Deskripsi</label>
+                        <input type="text" class="form-control" name="desc" id="desc" placeholder="Masukkan keterangan terkait kerusakan jalan">
                     </div>
-                </form>
-                <div class="row">
                     <div class="col-12">
                         <label for="inputLat" class="form-label">Upload Gambar</label>
-                        <div class="card">
-                            <div class="card-body">
-                                <div id="dropzone">
-                                    <form action="/upload" class="dropzone needsclick" id="demo-upload">
-                                        <div class="dz-message needsclick">
-                                            <button type="button" class="dz-button"><strong>Drop files here or click to upload.</strong></button><br />
-                                            <span class="note needsclick">(Pastikan format gambar sesuai)</span>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        <input type="file" name="file" class="form-control">
                     </div>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Kirim</button>
-                </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Kirim</button>
+                    </div>
+                </form>
+                
             </div>
         </div>
     </div>
 @endsection
 
 @section('pagescripts')
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
         // Inisialisasi peta
@@ -76,8 +67,8 @@
         function onMapClick(e) {
             alert("Anda mengklik pada posisi: " + e.latlng);
             var marker = L.marker(e.latlng).addTo(map);
-            var inputLat = document.getElementById('inputLat');
-            var inputLong = document.getElementById('inputLong');
+            var inputLat = document.getElementById('lat');
+            var inputLong = document.getElementById('long');
             inputLat.value = e.latlng.lat;
             inputLong.value = e.latlng.lng;
         }

@@ -18,7 +18,7 @@
             <a href="/" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
         <li>
-            <a href="/form"><i class="material-icons-two-tone">edit</i>Lapor Pothole</a>
+            <a href="{{ Route('potholes.create')}}"><i class="material-icons-two-tone">edit</i>Lapor Pothole</a>
         </li>
         <li>
             <a href="#"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>

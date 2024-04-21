@@ -8,9 +8,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/form', function () {
-    return view('form');
-});
 
 Route::get('/laravel_version', function () {
     return view('welcome');
@@ -35,6 +32,8 @@ Route::middleware([
     });
 
     Route::get('/potholes', [PotholesController::class, 'index'])->name('potholes.index');
+    Route::get('/potholes/create', [PotholesController::class, 'create'])->name('potholes.create');
+    Route::post('/potholes', [PotholesController::class, 'store'])->name('potholes.store');
 
     //Settings
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
