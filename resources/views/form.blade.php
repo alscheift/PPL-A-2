@@ -1,10 +1,12 @@
 @extends('layouts.neptune')
 
-
 @section('appheader')
     @include('components.header')
 @endsection
 
+@section('styles')
+<link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet" >
+@endsection
 
 @section('appcontent')
     <div class="content-wrapper">
@@ -16,55 +18,70 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                    <label for="inputMap" class="form-label">Lokasi Pothole</label>
-                    <iframe
-                        width="600"
-                        height="450"
-                        style="border:0"
-                        loading="lazy"
-                        allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d960.8388531278873!2d110.93446389404517!3d-7.468099138456474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMjgnMDQuNiJTIDExMMKwNTYnMDMuNyJF!5e0!3m2!1sid!2sid!4v1713495870798!5m2!1sid!2sid">
-                    </iframe>
-                </div>
-            <form class="row g-3">
-                <div class="col-md-6">
-                    <label for="inputLat" class="form-label">Latitude</label>
-                    <input type="text" class="form-control" id="inputLat" value="7.4680279">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputLong" class="form-label">Longitude</label>
-                    <input type="text" class="form-control" id="inputLong" value="110.9343136">
-                </div>
-                <div class="col-12">
-                    <label for="inputDesc" class="form-label">Deskripsi</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Masukkan keterangan terkait kerusakan jalan">
-            </form>
+                <form class="row g-3">
+                    <div class="col-12">
+                        <label for="inputMap" class="form-label">Lokasi Pothole</label>
+                        <div id="map" style="height: 300px; width: 100%;"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputLat" class="form-label">Latitude</label>
+                        <input type="text" class="form-control" id="inputLat" placeholder="Klik lokasi pada peta" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputLong" class="form-label">Longitude</label>
+                        <input type="text" class="form-control" id="inputLong" placeholder="Klik lokasi pada peta" readonly>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputDesc" class="form-label">Deskripsi</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Masukkan keterangan terkait kerusakan jalan">
+                    </div>
+                </form>
                 <div class="row">
                     <div class="col-12">
-                    <label for="inputLat" class="form-label">Upload Gambar</label>
+                        <label for="inputLat" class="form-label">Upload Gambar</label>
                         <div class="card">
                             <div class="card-body">
                                 <div id="dropzone">
                                     <form action="/upload" class="dropzone needsclick" id="demo-upload">
-                                            <div class="dz-message needsclick">
-                                                    <button type="button" class="dz-button"><strong>Drop files here or click to upload.</strong></button><br />
-                                                    <span class="note needsclick">(Pastikan format gambar sesuai)</span>
-                                         </div>
+                                        <div class="dz-message needsclick">
+                                            <button type="button" class="dz-button"><strong>Drop files here or click to upload.</strong></button><br />
+                                            <span class="note needsclick">(Pastikan format gambar sesuai)</span>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
-                         </div>
+                        </div>
                     </div>
                 </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Kirim</button>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </div>
             </div>
         </div>
     </div>
 @endsection
 
 @section('pagescripts')
-{{-- <script src="../../assets/js/pages/dashboard.js"></script>--}}
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inisialisasi peta
+        var map = L.map('map').setView([-7.4680279, 110.9343136], 13);
+
+        // Tambahkan layer peta OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Penangan klik pada peta
+        function onMapClick(e) {
+            alert("Anda mengklik pada posisi: " + e.latlng);
+            var marker = L.marker(e.latlng).addTo(map);
+            var inputLat = document.getElementById('inputLat');
+            var inputLong = document.getElementById('inputLong');
+            inputLat.value = e.latlng.lat;
+            inputLong.value = e.latlng.lng;
+        }
+
+        map.on('click', onMapClick);
+    </script>
 @endsection
