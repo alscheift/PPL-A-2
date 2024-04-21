@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-                <form method='POST' action="{{Route('potholes.store')}}" class="dropzone needsclick" enctype="multipart/form-data" class="row g-3">
+                <form method='POST' action="{{Route('potholes.store')}}" enctype="multipart/form-data" class="row g-3">
                     @csrf
                     <div class="col-12">
                         <label for="inputMap" class="form-label">Lokasi Pothole</label>
@@ -52,7 +52,6 @@
 @endsection
 
 @section('pagescripts')
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
         // Inisialisasi peta

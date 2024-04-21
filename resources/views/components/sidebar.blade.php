@@ -21,7 +21,7 @@
             <a href="{{ Route('potholes.create')}}"><i class="material-icons-two-tone">edit</i>Lapor Pothole</a>
         </li>
         <li>
-            <a href="#"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>
+            <a href="/potholes"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
         </li>
         <li>
             <a href="#"><i class="material-icons-two-tone">cloud_queue</i>File Manager</a>
