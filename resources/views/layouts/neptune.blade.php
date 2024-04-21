@@ -26,7 +26,7 @@
     <link href="../../assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="../../assets/plugins/pace/pace.css" rel="stylesheet">
     <link href="../../assets/plugins/datatables/datatables.min.css" rel="stylesheet">
-    <link href="../../assets/plugins/dropzone/min/dropzone.min.css" rel="stylesheet">
+    {{-- <link href="../../assets/plugins/dropzone/min/dropzone.min.css" rel="stylesheet"> --}}
     {{--  Styles For Page --}}
     @yield('styles') 
     @livewireStyles
@@ -73,7 +73,7 @@
     <script src="../../assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
     <script src="../../assets/plugins/pace/pace.min.js"></script>
     <script src="../../assets/plugins/highlight/highlight.pack.js"></script>
-    <script src="../../assets/plugins/dropzone/min/dropzone.min.js"></script>
+    {{-- <script src="../../assets/plugins/dropzone/min/dropzone.min.js"></script> --}}
     <script src="../../assets/js/main.min.js"></script>
     <script src="../../assets/js/custom.js"></script>
     @yield('pagescripts')
