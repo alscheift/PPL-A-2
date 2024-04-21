@@ -27,6 +27,8 @@
     <link href="../../assets/plugins/pace/pace.css" rel="stylesheet">
     <link href="../../assets/plugins/datatables/datatables.min.css" rel="stylesheet">
     <link href="../../assets/plugins/dropzone/min/dropzone.min.css" rel="stylesheet">
+    {{--  Styles For Page --}}
+    @yield('styles') 
     @livewireStyles
 
     
