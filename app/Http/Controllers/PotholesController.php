@@ -11,9 +11,11 @@ class PotholesController extends Controller
     public function index()
     {
         if (Gate::allows('admin', auth()->user())) {
-            return view('admin.potholes');
+            $potholes = Pothole::all();
+            return view('admin.potholes', compact('potholes'));
         } else {
-            return view('user.potholes');
+            $potholes = Pothole::where('id_user', auth()->id())->get();
+            return view('user.potholes', compact('potholes'));
         }
     }
 
