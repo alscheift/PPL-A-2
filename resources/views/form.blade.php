@@ -63,14 +63,20 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        var previousMarker = null;
+
         // Penangan klik pada peta
         function onMapClick(e) {
-            alert("Anda mengklik pada posisi: " + e.latlng);
+            if (previousMarker !== null) {
+                map.removeLayer(previousMarker);
+            }
             var marker = L.marker(e.latlng).addTo(map);
             var inputLat = document.getElementById('lat');
             var inputLong = document.getElementById('long');
             inputLat.value = e.latlng.lat;
             inputLong.value = e.latlng.lng;
+
+            previousMarker = marker;
         }
 
         map.on('click', onMapClick);
