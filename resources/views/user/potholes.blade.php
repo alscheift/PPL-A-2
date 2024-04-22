@@ -61,7 +61,7 @@
                                             <td>admin1</td>
                                             <td>
                                                 <div class="invoice-info-actions">
-                                                    <button type="button" class="btn btn-info view-image" data-image="{{ Storage::url($pothole->image) }}" data-toggle="tooltip" data-placement="top" title="Preview the Image"><i class="material-icons">image</i></button>
+                                                    <button type="button" class="btn btn-info view-image" data-image="{{ $pothole->is_damaged ? $pothole->getSegmentedImageAttribute() : Storage::url($pothole->image) }}" data-toggle="tooltip" data-placement="top" title="Preview the Image"><i class="material-icons">image</i></button>
                                                 </div>
                                             </td>
                                             <td>
