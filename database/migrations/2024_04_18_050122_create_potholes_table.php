@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->unsignedBigInteger('id_admin');
+            $table->unsignedBigInteger('id_admin')->nullable();
             $table->foreign('id_admin')->references('id')->on('users');
             $table->enum("is_approved", ["Approved", "Not Approved", "Pending"])->default("Pending");
             $table->timestamps();
