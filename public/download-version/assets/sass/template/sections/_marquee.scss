@@ -1,0 +1,127 @@
+/* Marquee 1---------------------------------- */
+.marquee-area {
+    background: linear-gradient(180deg, $theme-color 0%, $theme-color2 100%);
+    padding: 35px 0;
+
+}
+
+.marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
+    transform: rotate(-45deg);
+    margin-right: -75%;
+
+    @include lg {
+        margin-right: -90%;
+    }
+
+    @include md {
+        margin-right: -100%;
+    }
+
+    @include sm {
+        margin-right: -140%;
+        margin-top: 20%;
+    }
+
+    @media(max-width: 530px) {
+        margin-right: -190%;
+        margin-top: 20%;
+    }
+
+    @media(max-width: 330px) {
+        margin-right: -210%;
+        margin-top: 50%;
+    }
+
+}
+
+.marquee-content_wrapper {
+    .marquee {
+        .marquee-group {
+            .item {
+                font-weight: 700;
+                font-size: 50px;
+                line-height: 60px;
+                text-transform: capitalize;
+                color: $white-color;
+                img {
+                    margin: 0 29px;
+                }
+            }
+        }
+    }
+}
+
+.marquee {
+    position: relative;
+    --duration: 120s;
+    --gap: 0px;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+
+    &:first-child {
+        --duration: 100s;
+    }
+
+    &:last-child {
+        --duration: 80s;
+    }
+
+    &.marquee--reverse {
+        .marquee-group {
+            animation-direction: reverse;
+        }
+    }
+
+    .marquee-group {
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        gap: var(--gap);
+        min-width: 100%;
+        animation: scroll var(--duration) linear infinite;
+
+        .text {
+            font-family: $title-font;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.32px;
+            border-radius: 100px;
+            color: $white-color;
+            padding: 6px 30px;
+            margin: 8px 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: 1px solid rgba(92, 127, 255, 0.62);
+            background: rgba(255, 255, 255, 0.01);
+            box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease-in-out;
+
+            &:hover {
+                background-color: $white-color;
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-wrapper .marquee .marquee-group {
+        -webkit-animation-play-state: play;
+        animation-play-state: play;
+    }
+}

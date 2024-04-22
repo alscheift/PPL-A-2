@@ -1,0 +1,530 @@
+/* Counter 1 ---------------------------------- */
+.counter-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    &_icon {
+        width: 112px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        position: relative;
+        padding-left: 15px;
+        margin-bottom: 2px;
+        z-index: 2;
+
+        &:before,
+        &:after {
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $black-color2;
+            clip-path: path("M13.3648 23.689C12.3113 18.0885 13.5019 11.7494 18.6938 9.40012C35.1267 1.96429 68.7714 -9.44147 82.3112 14.0815C100.548 45.7649 138.846 59.5402 82.3112 87.5508C66.122 95.5719 56.2138 98.9992 50.3168 99.8059C42.2525 100.909 34.515 87.5508 26.3756 87.5508H13.8433C10.9933 87.5508 8.2154 86.3499 6.50037 84.0737C-12.7867 58.4757 17.3824 45.0461 13.3648 23.689Z");
+            z-index: -2;
+        }
+
+        &:after {
+            background-color: $white-color;
+            top: 2px;
+            left: 10px;
+            z-index: -1;
+        }
+
+        img {
+            transition: 0.4s ease-in-out;
+        }
+    }
+
+    &_number {
+        font-size: 40px;
+        color: $white-color;
+        font-weight: 900;
+        margin-bottom: 8px;
+        margin-top: -0.3em;
+    }
+
+    &_text {
+        font-weight: 500;
+        color: $white-color;
+        display: block;
+        margin-bottom: -0.5em;
+    }
+
+    .icon {
+        transition: 0.4s ease-in-out;
+    }
+
+    &:hover {
+        .counter-card {
+            &_icon {
+                img {
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+
+        .icon {
+            transform: rotateY(180deg);
+        }
+    }
+}
+
+@include xl {
+    .counter-card {
+        flex-direction: column;
+        text-align: center;
+
+        &_number {
+            margin-bottom: 4px;
+        }
+    }
+}
+
+@include vxs {
+    .counter-card {
+        &_number {
+            font-size: 36px;
+        }
+
+        &_text {
+            font-size: 14px;
+        }
+    }
+}
+
+.counter-card {
+    &-wrap {
+        background-color: $black-color2;
+        border-radius: 10px;
+        padding: 65px 40px;
+
+        .counter-card {
+            &_icon {
+                &:before {
+                    background-color: $theme-color;
+                    opacity: 0.6;
+                }
+            }
+
+            &_number {
+                font-weight: 700;
+            }
+        }
+
+        @include xs {
+            padding: 65px 10px;
+        }
+    }
+}
+
+/* Counter 4 ---------------------------------- */
+.counter-area-4 {
+    padding-top: 80px;
+
+    @include lg {
+        padding-top: 0;
+    }
+
+    @include xs {
+        padding-top: 80px;
+    }
+}
+
+.counter-card4 {
+    &_icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $white-color;
+        border: 1px solid #EBEDF1;
+        filter: drop-shadow(2.5px 2.5px 15px rgba(232, 234, 238, 0.55));
+        transition: 0.4s ease-in-out;
+        margin-bottom: 35px;
+
+        @include sm {
+            display: block;
+            margin: auto auto 35px auto;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: scale(0);
+            border-radius: 50%;
+            background-color: var(--theme-color);
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.62, 0.21, 0.45, 1.52);
+            z-index: -1;
+        }
+
+        img {
+            transition: 0.4s ease-in-out;
+        }
+    }
+
+    &-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+
+        .divider {
+            background: #D4DAE7;
+            width: 1px;
+            height: 245px;
+
+            &:last-of-type {
+                display: none;
+            }
+
+            @include md {
+                display: none;
+            }
+
+        }
+
+        &.style2 {
+            justify-content: center;
+            border-right: 1px solid #5770FF;
+
+            @include lg {
+
+                &:nth-child(1),
+                &:nth-child(2) {
+                    border-bottom: 1px solid #5770FF;
+                }
+
+                &:nth-child(2) {
+                    border-right: 0;
+                }
+
+                &:nth-child(3) {
+                    border-bottom: 1px solid #5770FF;
+                }
+            }
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            .divider {
+                background: #5770FF;
+            }
+        }
+    }
+
+    .box-number {
+        font-size: 40px;
+        color: $title-color;
+        font-weight: 700;
+        margin-bottom: 8px;
+        margin-top: -0.2em;
+    }
+
+    .counter-title {
+        margin-bottom: 10px;
+        font-size: 20px;
+
+        @include md {
+            font-size: 18px;
+        }
+
+        @include sm {
+            font-size: 20px;
+        }
+    }
+
+    .counter-text {
+        @include md {
+            font-size: 16px;
+        }
+    }
+
+    .media-body {
+        flex: 1;
+        max-width: 312px;
+    }
+
+    @include lg {}
+
+    &:hover {
+        .counter-card4 {
+            &_icon {
+                &:before {
+                    transform: scaleX(1.0);
+                }
+
+                img {
+                    transform: rotateY(180deg);
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+    }
+
+    &.style2 {
+        padding: 70px 0;
+        display: flex;
+        gap: 20px;
+
+        @include sm {
+            padding: 35px 0;
+            flex-direction: column;
+        }
+    }
+}
+
+.title-area-wrapper {
+    position: absolute;
+    bottom: 0;
+    max-width: 600px;
+    padding: 120px 0 120px 120px;
+
+    @include md {
+        padding: 80px 0 80px 0px;
+        max-width: 400px;
+    }
+
+    @include sm {
+        padding: 0px 0 180px 0px;
+    }
+
+    .title-area .sec-title {
+        @include sm {
+            font-size: 28px;
+        }
+
+        @include vxs {
+            font-size: 25px;
+        }
+    }
+
+    .sub-title {
+        font-weight: 600;
+    }
+
+    @media(max-width: 600px) {
+        max-width: 300px;
+    }
+
+    @media(max-width: 480px) {
+        padding-bottom: 180px;
+    }
+
+    .th-btn {
+        padding: 17px 46.5px;
+    }
+}
+
+@include md {
+    .counter-area-4 {
+        margin-top: 60px;
+    }
+
+    .counter-card4 {
+        .box-number {
+            font-size: 46px;
+        }
+
+        .box-text {
+            font-size: 18px;
+        }
+    }
+}
+
+@include sm {
+    .counter-card4 {
+        &-wrap {
+            flex-wrap: wrap;
+            position: relative;
+            display: block;
+
+            .divider {
+                display: none;
+            }
+        }
+
+        flex: 50%;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        text-align: center;
+
+        &:nth-child(1),
+        &:nth-child(3) {
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .media-body {
+            max-width: 100%;
+        }
+    }
+}
+
+@include xs {
+    .counter-area-4 {
+        margin-top: 0px;
+    }
+}
+
+/* Counter 5 ---------------------------------- */
+.counter-area-5 {
+    border-bottom: 1px solid #D4D4D4;
+    padding: 80px 0;
+}
+
+.counter-card5 {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    .box-number {
+        font-size: 64px;
+        font-weight: 700;
+        margin-bottom: -0.25em;
+        margin-top: -0.25em;
+    }
+
+    .counter-text {
+        max-width: 180px;
+        margin-top: -0.25rem;
+    }
+
+    @include md {
+        flex-wrap: wrap;
+
+        .box-number {
+            font-size: 44px;
+        }
+
+        .media-body {
+            flex: none;
+        }
+    }
+}
+
+/* Counter 6 ---------------------------------- */
+.counter-area-6 {
+    padding: 80px 0;
+}
+
+.counter-card6 {
+    .box-number {
+        color: $white-color;
+        font-size: 64px;
+        font-weight: 700;
+        margin-bottom: -2px;
+        margin-top: -0.3em;
+
+        @include xs {
+            font-size: 40px;
+        }
+    }
+
+    .counter-text {
+        color: $white-color;
+        max-width: 215px;
+    }
+}
+
+/* counter 7 start -------------------------*/
+
+.counter-area-7 {
+    background-color: #F3F2EA;
+    border: 4px solid $white-color;
+
+}
+
+.counter-card7 {
+    position: relative;
+    padding: 120px 30px;
+    border: 12px solid transparent;
+    transition: all 0.6s ease-in-out;
+    margin: -20px 0;
+
+    @media(max-width: 1399px) {
+        padding: 120px 20px;
+    }
+
+    @include xl {
+        padding: 120px 10px;
+        margin: -10px 0;
+    }
+
+    @include md {
+        padding: 80px 10px;
+    }
+
+    .box-number {
+        font-weight: 700;
+        font-size: 84px;
+        line-height: 84px;
+        text-align: center;
+        color: #1C1C25;
+    }
+
+    .counter-text {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        color: #656A74;
+        display: block;
+
+        @include xl {
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        span {
+            display: block;
+        }
+    }
+
+    .divider {
+        position: absolute;
+        left: 50%;
+        top: 5px;
+        background-color: $white-color;
+        width: 5px;
+        height: 118px;
+        transition: all 0.2s ease-in-out;
+
+        @include xl {
+            top: -2px;
+        }
+
+        @include md {
+            height: 96px;  
+        }
+    }
+
+    &:hover {
+        background-color: $theme-color;
+        border: 12px solid $white-color;
+
+        .box-number {
+            color: $white-color;
+        }
+
+        .counter-text {
+            color: $white-color;
+        }
+
+        .divider {
+            height: 0;
+            background-color: transparent;
+        }
+    }
+}
+
+/* counter 7 end -------------------------*/

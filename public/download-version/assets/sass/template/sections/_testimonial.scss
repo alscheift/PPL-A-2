@@ -1,0 +1,927 @@
+/* Testimonial Card ---------------------------------- */
+.testi-card {
+    background-color: $white-color;
+    border-radius: 10px;
+    padding: 40px;
+    position: relative;
+
+    &-area {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &-slide {
+        background-color: $white-color;
+        border-radius: 10px;
+        padding: 40px;
+        position: relative;
+    }
+
+    &-tab {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 5px 0;
+        width: 56px;
+
+        &:after {
+            content: '';
+            height: 100%;
+            width: 3px;
+            position: absolute;
+            top: 0;
+            left: 26.5px;
+            background-color: $theme-color;
+            z-index: -1;
+        }
+
+        .tab-btn {
+            cursor: pointer;
+            width: 56px;
+            border-radius: 99px;
+
+            img {
+                border-radius: inherit;
+            }
+        }
+
+        .indicator {
+            position: absolute;
+            top: calc(var(--pos-y) - 5px);
+            left: calc(var(--pos-x) - 5px);
+            width: calc(var(--width-set) + 10px);
+            height: calc(var(--height-set) + 10px);
+            border: 3px solid $theme-color;
+            transition: 0.4s ease-in-out;
+            border-radius: 50%;
+        }
+    }
+
+    &_quote {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+    }
+
+    &_profile {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &_avater {
+        border-radius: 99px;
+        overflow: hidden;
+    }
+
+    &_name {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    &_desig {
+        margin-bottom: 0;
+        display: block;
+        color: $theme-color;
+    }
+
+    &_text {
+        margin-bottom: 22px;
+    }
+
+    &_review {
+        color: $theme-color;
+        font-size: 14px;
+        margin-top: -0.4em;
+        margin-bottom: 17px;
+
+        i {
+            margin-right: 3px;
+        }
+    }
+}
+
+@include lg {
+    .testi-card-area {
+        max-width: 700px;
+    }
+}
+
+@include sm {
+    .testi-card {
+        &-area {
+            display: block;
+        }
+
+        &-tab {
+            flex-direction: row;
+            width: 100%;
+            max-width: 300px;
+            margin: 30px auto 0 auto;
+
+            &:after {
+                height: 3px;
+                top: 26.5px;
+                left: 0;
+                width: 100%;
+            }
+
+            .tab-btn {
+                flex: 56px;
+                width: auto;
+                max-width: 56px;
+            }
+        }
+    }
+}
+
+@include vxs {
+    .testi-card {
+        padding: 40px 20px;
+
+        &_name {
+            font-size: 20px;
+        }
+
+        &_avater {
+            max-width: 60px;
+        }
+    }
+}
+
+
+/* Testimonial Box ---------------------------------- */
+.testi-box {
+    position: relative;
+    display: flex;
+    background-color: $white-color;
+    box-shadow: 0px 6px 15px rgba(8, 14, 28, 0.06);
+    border-radius: 10px;
+    gap: 30px;
+    padding: 40px;
+
+    &_img {
+        min-width: 180px;
+        text-align: center;
+
+        >img {
+            border-radius: 10px;
+            width: 100%;
+        }
+    }
+
+    &_quote {
+        height: 56px;
+        width: 56px;
+        line-height: 52px;
+        background-color: $theme-color;
+        border-radius: 50%;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        margin: -28px auto 0 auto;
+
+        img {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: $theme-color;
+            @extend .ripple-animation;
+            z-index: -1;
+            border-radius: 50%;
+            transition: all ease 0.4s;
+        }
+
+        &:after {
+            animation-delay: 2s;
+        }
+    }
+
+    &_avater {
+        margin-bottom: 12px;
+
+        img {
+            border-radius: 999px;
+        }
+    }
+
+    .box-title {
+        margin-bottom: 4px;
+    }
+
+    &_desig {
+        font-size: 14px;
+        display: block;
+        margin-bottom: -0.5em;
+    }
+
+    &_text {
+        margin-top: -0.45em;
+        padding-bottom: 23px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid $smoke-color2;
+    }
+
+    &_review {
+        color: $theme-color;
+        font-size: 14px;
+        position: absolute;
+        bottom: 55px;
+        right: 40px;
+
+        i {
+            margin-right: 3px;
+        }
+    }
+}
+
+@include lg {
+    .testi-box {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &_review {
+            bottom: 75px;
+        }
+    }
+}
+
+@include sm {
+    .testi-box {
+        padding: 20px;
+        gap: 20px;
+
+        &_img {
+            min-width: 140px;
+        }
+
+        &_review {
+            bottom: 30px;
+        }
+
+        &_text {
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+@include xs {
+    .testi-box {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+        text-align: center;
+        padding-bottom: 30px;
+
+        &_img {
+            min-width: 120px;
+            max-width: 120px;
+            margin-top: -60px;
+
+            >img {
+                border-radius: 50%;
+            }
+        }
+
+        &_review {
+            position: static;
+            margin-bottom: 10px;
+            margin-top: -0.4em;
+        }
+    }
+}
+
+
+/* Testimonial Grid ---------------------------------- */
+.testi-grid {
+    position: relative;
+    background-color: $white-color;
+    box-shadow: 0px 6px 15px rgba(8, 14, 28, 0.06);
+    border-radius: 10px;
+    padding: 120px 40px 40px 40px;
+    margin-top: 50px;
+
+    &_img {
+        background-color: $black-color2;
+        ;
+        width: 120px;
+        text-align: center;
+        border-radius: 10px;
+        border: 10px solid $black-color2;
+        position: absolute;
+        top: -50px;
+        left: 40px;
+
+        >img {
+            border-radius: 10px;
+            width: 100%;
+        }
+    }
+
+    &_quote {
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        background-color: $theme-color;
+        border-radius: 50%;
+        text-align: center;
+        position: absolute;
+        bottom: -18px;
+        left: calc(50% - 18px);
+        z-index: 2;
+        margin: -28px auto 0 auto;
+
+        img {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: $theme-color;
+            @extend .ripple-animation;
+            z-index: -1;
+            border-radius: 50%;
+            transition: all ease 0.4s;
+        }
+
+        &:after {
+            animation-delay: 2s;
+        }
+    }
+
+    .box-title {
+        margin-bottom: 4px;
+    }
+
+    &_desig {
+        font-size: 14px;
+        display: block;
+        margin-bottom: -0.5em;
+    }
+
+    &_text {
+        margin-top: -0.45em;
+        margin-bottom: 25px;
+    }
+
+    &_review {
+        color: $theme-color;
+        font-size: 14px;
+        position: absolute;
+        top: 35px;
+        right: 40px;
+
+        i {
+            margin-right: 3px;
+        }
+    }
+}
+
+/* Testimonial 1 ---------------------------------- */
+.testi-block {
+    &-area {
+        background-color: $white-color;
+        padding: 100px 95px 100px 100px;
+        max-width: 660px;
+        border-radius: 20px;
+        position: relative;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    &-quote {
+        position: absolute;
+        bottom: 70px;
+        right: 100px;
+        animation: jumpAni 7s linear infinite;
+    }
+
+    &-slide {
+        .slick-dots {
+            text-align: left;
+        }
+    }
+
+    &_profile {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &_avater {
+        border-radius: 99px;
+        overflow: hidden;
+    }
+
+    .box-title {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    &_desig {
+        margin-bottom: 0;
+        display: block;
+        color: $theme-color;
+    }
+
+    &_text {
+        font-size: 20px;
+        margin-top: -0.5em;
+        margin-bottom: 35px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .testi-block {
+        &-area {
+            margin-left: -100px;
+        }
+    }
+}
+
+@include xl {
+    .testi-block {
+        &-area {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 50px;
+        }
+
+        &-quote {
+            right: 50px;
+            bottom: 30px;
+        }
+    }
+}
+
+@include sm {
+    .testi-block_text {
+        font-size: 18px;
+        margin-top: -0.45em;
+        margin-bottom: 30px;
+    }
+}
+
+
+@include xs {
+    .testi-block {
+        &-area {
+            margin-top: 80px;
+            margin-bottom: 80px;
+            padding: 50px 20px;
+            border-radius: 10px;
+        }
+
+        &-slide {
+            .slick-dots {
+                margin-top: 25px;
+            }
+        }
+
+        &-quote {
+            right: 10px;
+        }
+
+        &_text {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .box-title {
+            font-size: 22px;
+        }
+
+        &_profile {
+            gap: 15px;
+        }
+
+        &_avater {
+            max-width: 70px;
+        }
+
+    }
+}
+
+@include vxs {
+    .testi-block {
+        &-quote {
+            display: none;
+        }
+    }
+}
+
+/* Testimonial Box 5 ---------------------------------- */
+.testi-box5 {
+    position: relative;
+    padding: 40px;
+    background-color: $white-color;
+    border-radius: 15px;
+    box-shadow: 0px 14px 16px 0px rgba(0, 0, 0, 0.04);
+
+    @include xl {
+        padding: 30px;
+    }
+
+    &_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 0px;
+
+        @include xl {
+            gap: 15px;
+        }
+
+        @include md {
+            display: block;
+        }
+
+        @include vxs {
+            display: block;
+
+        }
+    }
+
+    &_author {
+        margin-bottom: 15px;
+    }
+
+    &_image {
+        margin-bottom: 20px;
+    }
+
+    .testi-box5 {
+        &_img {
+            min-width: 60px;
+
+            img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+        }
+
+        &_name {
+            margin-bottom: 0px;
+        }
+
+        &_text {
+            border-bottom: 1px solid #EAEAEA;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+
+            @include md {
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+
+        }
+
+        &_desig {
+            font-size: 14px;
+            color: $theme-color;
+
+            @include vxs {
+                margin-bottom: 40px;
+            }
+        }
+
+        &_info {
+            margin-bottom: -0.3rem;
+        }
+
+    }
+
+    .testi-quote {
+        @include md {
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+        }
+    }
+
+    .box-title {
+        font-size: 20px;
+        letter-spacing: -0.4px;
+        font-weight: 500;
+        margin-bottom: -0.3rem;
+
+        @include xl {
+            font-size: 20px;
+        }
+    }
+}
+
+@include sm {
+    .testi-box5 {
+        &_quote {
+            display: none;
+        }
+    }
+}
+
+/* Testimonial 7 ---------------------------------- */
+.testi-grid2 {
+    text-align: center;
+
+    &-area {
+        position: relative;
+        background-color: $white-color;
+        padding: 80px 120px;
+        border-radius: 20px;
+        border: 1px solid #D8DFED;
+        text-align: center;
+        z-index: 2;
+
+        &.style2 {
+            background-color: transparent; 
+            border: 1px solid #C5C5C5;
+        }
+
+        @include xxl {
+            padding: 80px;
+        }
+
+        @include xl {
+            padding: 80px 60px;
+        }
+
+        @include md {
+            padding: 80px 30px;
+        }
+
+        @include xs {
+            padding: 80px 20px;
+        }
+
+        .testi-indicator {
+            position: absolute;
+            width: 100%;
+            right: 0;
+            bottom: 160px;
+
+            @include xs {
+                position: initial;
+                margin-bottom: 30px;
+            }
+        }
+
+        .slider-arrow {
+            top: 66%;
+            left: 0;
+            border: 1px solid $theme-color;
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+
+            &.slider-next {
+                right: 0;
+                left: auto;
+            }
+
+            @include xxl {
+                display: block;
+            }
+
+            @include sm {
+                display: none;
+            }
+        }
+
+        .testi-line {
+            position: absolute;
+            left: 120px;
+            z-index: -1;
+            bottom: 196px;
+            width: 80%;
+            height: 1px;
+            background-color: $theme-color;
+
+            @include xl {
+                left: 60px;
+                width: 85%;
+            }
+
+            @include sm {
+                display: none;
+            }
+        }
+    }
+
+    &-thumb {
+        position: relative;
+        max-width: 410px;
+        padding: 7px;
+        z-index: 2;
+
+        @include xs {
+            max-width: 100%;
+        }
+
+        .box-img {
+            background-color: $white-color;
+            border: 1px solid $theme-color;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            line-height: 50px;
+            text-align: center;
+            padding: 5px;
+            overflow: hidden;
+            transition: 0.4s ease-in-out;
+            cursor: pointer;
+
+            @include xs {
+                margin: auto;
+            }
+
+            @include vxs {
+                width: 50px;
+                height: 50px;
+                line-height: 30px;
+                padding: 8px;
+            }
+        }
+
+        .swiper-slide-thumb-active {
+            opacity: 1;
+
+            .box-img {
+                transform: scale(1.20);
+                border-width: 3px;
+                line-height: 40px;
+                border-color: $theme-color;
+
+                @include vxs {
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+}
+
+.testi-card2 {
+    text-align: center;
+    position: relative;
+
+    &_profile {
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        z-index: 3;
+        gap: 20px;
+    }
+
+
+    &_avater {
+        width: 60px;
+        min-width: 60px;
+        border-radius: 50%;
+
+        img {
+            border-radius: inherit;
+        }
+    }
+
+    &_text {
+        font-size: 22px;
+        color: $title-color;
+        letter-spacing: -0.22px;
+        margin-bottom: 140px;
+
+        @include md {
+            font-size: 18px;
+        }
+
+        @include xs {
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+    }
+
+    &_desig {
+        font-family: $title-font;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.32px;
+    }
+
+    .box-title {
+        font-weight: 700;
+        letter-spacing: -0.48px;
+        margin-bottom: -0.2rem;
+    }
+}
+
+/* testimonial box start ------------------------*/
+.testiSlider8 {
+    .swiper-slide {
+        width: calc(678px) !important;
+
+        @include sm {
+            width: 100% !important;
+        }
+    }
+}
+
+.testi-box6 {
+    background: #2D2F34;
+    border-radius: 20px;
+    padding: 40px;
+
+    @include xs {
+        padding: 30px;
+    }
+
+    &_image {
+        margin-bottom: 35px;
+    }
+
+    &_text {
+        font-size: 18px;
+        line-height: 28px;
+        color: #8D929C;
+        max-width: 598px;
+        margin-bottom: 35px;
+
+        @include md {
+            max-width: 100%;
+        }
+    }
+
+    &_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media(max-width: 400px) {
+            display: block;
+        }
+    }
+
+    &_profile {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @media(max-width: 400px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &_author {
+        min-width: 60px;
+
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+    }
+
+    .box-title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: $white-color;
+        margin-bottom: 0;
+    }
+
+    &_desig {
+        font-weight: 500;
+        font-size: 14px;
+        font-family: $body-font;
+        background: linear-gradient(180deg, #02CE80 0%, #7BD706 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+
+
+    }
+
+}
+
+/* testimonial box end ------------------------*/

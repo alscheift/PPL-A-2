@@ -1,0 +1,37 @@
+.screenshot-sec-1 {
+    background-position: bottom;
+    padding-bottom: 160px;
+    @include md {
+        padding-bottom: 100px;
+    }
+    @include xs {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+.screen-slider1 {
+    .swiper-pagination-bullets {
+        margin-bottom: 0;
+        margin-top: 90px;
+        height: 14px;
+        @include lg {
+            margin-top: 50px;
+        }
+        @include xs {
+            display: none;
+        }
+        .swiper-pagination-bullet {
+            --swiper-pagination-bullet-size: 14px;
+            --swiper-pagination-bullet-horizontal-gap: 10px;
+            background: rgba($color: #ffffff, $alpha: 0.5);
+        }
+        .swiper-pagination-bullet:before {
+            background: $white-color;
+        }
+    }
+}
+.screetshot-thumb {
+    img {
+        width: 100%;
+    }
+}

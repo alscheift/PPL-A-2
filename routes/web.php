@@ -47,3 +47,7 @@ Route::get('/new-signin', function () {
 Route::get('/new-signup', function () {
     return view('new-signup');
 });
+
+Route::get('/home', function () {
+    return view('home');
+});

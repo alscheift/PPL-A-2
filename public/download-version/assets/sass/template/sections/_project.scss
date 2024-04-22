@@ -1,0 +1,486 @@
+/* Project Card ---------------------------------- */
+.project-card {
+    --space: 30px;
+    position: relative;
+    overflow: hidden;
+
+    .project-img {
+        overflow: hidden;
+        border-radius: 10px;
+        z-index: 2;
+
+        img {
+            width: 100%;
+            transition: 0.4s ease-in-out;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 40, 0) 0%, rgba(0, 0, 40, 0.140476) 43.1%, #000028 100%);
+            opacity: 0;
+            transition: 0.4s ease-in-out;
+            z-index: 1;
+            border-radius: inherit;
+        }
+    }
+
+    .project-content-wrap {
+        position: absolute;
+        left: var(--space);
+        bottom: -30px;
+        width: 100%;
+        max-width: calc(100% - var(--space)*2 - 28px);
+        z-index: 3;
+        opacity: 0;
+        transition: 0.4s ease-in-out;
+    }
+
+    .project-content {
+        background-color: $theme-color;
+        background-size: auto;
+        background-position: right center;
+        border-radius: 10px;
+        position: relative;
+        z-index: 2;
+        padding: 26px 30px;
+    }
+
+    .box-title {
+        color: $white-color;
+        margin-bottom: 2px;
+
+        a:hover {
+            color: $smoke-color2;
+        }
+    }
+
+    .project-subtitle {
+        margin-bottom: -0.5em;
+        color: $white-color;
+    }
+
+    .icon-btn {
+        position: absolute;
+        right: -28px;
+        top: calc(50% - 28px);
+        background-color: $white-color;
+        border: none;
+        color: $theme-color;
+        font-size: 24px;
+
+        &:hover {
+            background-color: $title-color;
+        }
+    }
+
+    &:hover {
+        .project-img {
+            img {
+                transform: scale(1.1);
+            }
+
+            &:before {
+                height: 100%;
+                opacity: 1;
+            }
+        }
+
+        .project-content-wrap {
+            bottom: var(--space);
+            opacity: 1;
+        }
+    }
+}
+
+@include vxs {
+    .project-card {
+        --space: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .project-card {
+        .box-title {
+            font-size: 22px;
+        }
+
+        .project-content {
+            padding: 26px 20px;
+        }
+    }
+}
+
+/* Project Grid ---------------------------------- */
+.project-grid {
+    background-color: $white-color;
+    box-shadow: 0px 10px 15px rgba(8, 14, 28, 0.06);
+    border-radius: 10px;
+
+    &_img {
+        position: relative;
+        z-index: 2;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+
+        &:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: $black-color2;
+            opacity: 0.8;
+            transition: 0.4s ease-in-out;
+            transform: scaleX(0);
+            z-index: 1;
+        }
+
+        img {
+            width: 100%;
+            transition: 0.4s ease-in-out;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+
+            >i {
+                font-size: 24px;
+            }
+        }
+    }
+
+    &_text {
+        margin-bottom: -0.5em;
+    }
+
+    &_content {
+        padding: 40px;
+    }
+
+    &:hover {
+        .project-grid {
+            &_img {
+                &:before {
+                    transform: scaleX(1);
+                }
+
+                img {
+                    transform: scale(1.1);
+                }
+
+                .play-btn {
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        }
+    }
+}
+
+/* Project Box ---------------------------------- */
+.project-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+
+    &.style2 {
+        border-radius: 20px;
+
+        .project-img {
+            border-radius: 20px;
+
+            img {
+                border-radius: 20px;
+            }
+        }
+    }
+
+    .project-img {
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+
+        img {
+            width: 100%;
+            transition: 0.4s ease-in-out;
+        }
+    }
+
+    .project-content {
+        background-color: $white-color;
+        padding: 22px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .box-title {
+        margin-bottom: 3px;
+    }
+
+    .project-subtitle {
+        margin-bottom: -0.5em;
+        color: $theme-color;
+    }
+
+    .icon-btn {
+        background-color: $theme-color;
+        border: none;
+        color: $white-color;
+        font-size: 24px;
+        border-radius: 8px;
+
+        &:hover {
+            background-color: $title-color;
+        }
+    }
+
+    &:hover {
+        .project-img {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .project-box {
+        .box-title {
+            font-size: 22px;
+        }
+
+        .project-content {
+            padding: 26px 20px;
+        }
+    }
+}
+
+
+/* Project Box 4---------------------------------- */
+.project-box4 {
+    position: relative;
+    --space: 40px;
+    border-radius: 35px;
+    margin-bottom: 0px;
+    overflow: hidden;
+
+    .project-content {
+        position: absolute;
+        left: var(--space);
+        bottom: -30px;
+        width: calc(100% - var(--space)*2);
+        z-index: 3;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .box-title {
+        color: $white-color;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+
+        a {
+            color: inherit;
+
+        }
+
+        &:hover {
+            color: $white-color;
+        }
+    }
+
+    .project-tags {
+        display: flex;
+        gap: 5px;
+
+        a {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: -0.28px;
+            background-color: $white-color;
+            color: $title-color;
+            border-radius: 100px;
+            padding: 4px 20px;
+            transition: all 0.4s ease-in-out;
+
+            &:hover {
+                background-color: $theme-color;
+                color: $white-color;
+            }
+
+        }
+
+    }
+
+    .project-img {
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        border-radius: 30px;
+        transition: 0.4s ease-in-out;
+
+        &:before,
+        &:after {
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 30px;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.4s ease-in-out;
+        }
+
+        &:before {
+            background: $theme-color;
+            mix-blend-mode: multiply;
+            z-index: 4;
+        }
+
+        &:after {
+            background: rgba(64, 102, 242, 0.92);
+            z-index: 3;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+    }
+
+    &:hover {
+        .project-img {
+            img {
+                filter: grayscale(50%);
+                transform: scale(1);
+            }
+
+            &:before {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .project-content {
+            bottom: var(--space);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.project-slider4 {
+    margin-left: 40px;
+
+    @include lg {
+        margin: 50px 0 0 0;
+    }
+}
+
+.project-btn {
+    @include sm {
+        text-align: center;
+    }
+}
+
+
+/* Project 5---------------------------------- */
+.project-area-5 {
+    background: #1C1C25;
+}
+
+.project-card5 {
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid #2E3039;
+    background-color: #1C1C25;
+    padding: 20px;
+    overflow: hidden;
+
+    .project-img {
+        overflow: hidden;
+        border-radius: 20px;
+        z-index: 2;
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+            transition: 0.4s ease-in-out;
+        }
+    }
+
+    .project-content {
+        padding: 30px 20px 20px;
+
+        @include xl {
+            padding: 30px 0px 20px;
+        }
+    }
+
+    .box-title {
+        font-size: 22px;
+        color: $white-color;
+        margin-bottom: 14px;
+        letter-spacing: -0.22px;
+    }
+
+    &_desc {
+        margin-bottom: 22px;
+    }
+
+    .line-btn {
+        font-family: $body-font;
+
+        &:hover {
+            color: $white-color;
+
+            &:before {
+                background-color: $white-color;
+            }
+        }
+    }
+
+    &:hover {
+        .project-img {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+
+@media (max-width: 360px) {
+    .project-card5 {
+        .box-title {
+            font-size: 22px;
+        }
+
+        .project-content {
+            padding: 26px 20px;
+        }
+    }
+}
+
+
+/* Project Details ---------------------------------- */
+.project-inner-box {
+    background-color: $smoke-color;
+    border-radius: 5px;
+    padding: 30px;
+
+    @include vxs {
+        padding: 20px;
+    }
+}

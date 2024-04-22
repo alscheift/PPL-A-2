@@ -1,0 +1,67 @@
+.skill-feature {
+    &:not(:last-child) {
+        margin-bottom: 25px;
+    }
+    &_title,
+    .progress-value {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        margin-top: -0.2em;
+        font-family: $title-font;
+        color: $title-color;
+    }
+    .progress {
+        position: relative;
+        height: 10px;
+        background-color: $white-color;
+        overflow: visible;
+        border-radius: 100px;
+    }
+    .progress-bar {
+        background-color: $theme-color;
+        height: 4px;
+        margin: 3px;
+        border-radius: inherit;
+        position: relative;
+        overflow: visible;
+    }
+    .progress-value {
+        position: absolute;
+        top: -34px;
+        right: 0;
+    }
+    &.style2 {
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+        .progress {
+            background-color: $smoke-color2;
+        }
+    }
+}
+
+@media (min-width: 1430px) {
+    .video-box1 {
+        margin-right: -105px;
+    }
+}
+@media (min-width: 1300px) {
+    .video-box1 {
+        margin-left: 30px;
+    }
+}
+.video-box1 {
+    position: relative;
+    text-align: center;
+    img {
+        width: 100%;
+        max-width: 650px;
+    }
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

@@ -1,0 +1,45 @@
+/* Gallery Card ---------------------------------- */
+.gallery-card {
+    .gallery-img {
+        position: relative;
+        z-index: 2;
+        border-radius: 10px;
+        overflow: hidden;
+        &:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: $black-color2;
+            opacity: 0.8;
+            transition: 0.4s ease-in-out;
+            transform: scaleX(0);
+            z-index: 1;
+        }
+        img {
+            width: 100%;
+            transition: 0.4s ease-in-out;
+        }
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            > i {
+                font-size: 24px;
+            }
+        }
+    }
+    &:hover {
+        .gallery-img {
+            &:before {
+                transform: scaleX(1);
+            }
+            img {
+                transform: scale(1.1);
+            }
+            .play-btn {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+}

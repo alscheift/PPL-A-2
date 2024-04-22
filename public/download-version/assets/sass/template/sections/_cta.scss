@@ -1,0 +1,343 @@
+.img-half {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .img-left {
+        left: 0;
+    }
+}
+.th-video2 {
+    &:after {
+        content: "";
+        height: 140px;
+        width: 140px;
+        background-color: #080E1C;
+        border-radius: 50%;
+        position: absolute;
+        top: calc(50% - 70px);
+        right: -70px;
+    }
+    .play-btn {
+        > i {
+            --icon-size: 80px;
+        }
+        &:before,
+        &:after {
+            background-color: $theme-color;
+        }
+        position: absolute;
+        right: -40px;
+        top: calc(50% - 40px);
+    }
+}
+
+@include lg {
+    .img-half {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    .th-video2 {
+        &:after {
+            right: calc(50% - 70px);
+            top: calc(100% - 70px);
+        }
+        .play-btn {
+            position: absolute;
+            top: calc(100% - 40px);
+            right: calc(50% - 40px);
+        }
+    }
+}
+
+.cta-box {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: $smoke-color;
+    &_img {
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &_content {
+        padding: 70px 70px 70px 55px;
+        position: relative;
+    }
+    &_icon {
+        position: absolute;
+        right: 70px;
+        bottom: 70px;
+    }
+}
+
+@include md {
+    .cta-box {
+        text-align: center;
+    }
+}
+
+@include xs {
+    .cta-box {
+        &_content {
+            padding: 70px 20px;
+        }
+        &_icon {
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+}
+
+/*CTA Area 4***********************/
+.cta-area4 {
+    padding: 0 20px 91px 20px;
+    border-radius: 30px;
+    .cta-title {
+        border-radius: 100px;
+        border: 1px solid #3E66F3;
+        background: $white-color;
+        padding: 6px 49px;
+        margin: 0px 0 49px 0;
+        transform: translate(0, -50%);
+        display: inline-block;
+    
+        &.sub-title {
+            &:before {
+                top: 8px;
+                left: 25px;
+            }
+    
+            &:after {
+                top: 8px;
+                right: 25px;
+            }
+        }
+    }
+    
+    .cta-text {
+        font-size: 18px;
+        font-weight: 500;
+        max-width: 460px;
+        display: block;
+        margin: auto;
+    }
+    .counter-title {
+        font-size: 48px;
+        font-weight: 500;
+        letter-spacing: -0.96px;
+        margin-bottom: 0;
+
+        @include xs {
+            font-size: 25px;
+        }
+    }
+    .title-area .sec-title {
+        margin-bottom: 26px;
+    }
+
+    .cta-desc {
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.7px;
+    }
+
+    .th-btn {
+        padding: 17px 46.5px;
+    }
+}
+
+/*CTA Area 5***********************/
+.cta-area5 {
+    padding: 173.5px 0;
+    background-attachment: fixed;
+    background-position: right;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        background: linear-gradient(135deg, rgba(104, 77, 244, 0) -24.45%, $theme-color 165.8%);
+        backdrop-filter: blur(10.5px);
+        left: 0;
+        top: 0;
+        width: 60%;
+        height: 100%;
+        clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+    }
+    @include lg {
+        &:after {
+            width: 100%;
+            clip-path: none;
+        }
+    }
+    @include md {
+        padding: 120px 0;
+    }
+}
+.cta-title-area {
+    .sec-title {
+        font-size: 60px;
+        line-height: 64px;
+        letter-spacing: -1.2px;
+        margin-bottom: 30px;
+
+        @include xl {
+            font-size: 50px;
+        }
+
+        @include md {
+            font-size: 40px;
+            line-height: 50px;
+        }
+
+        @include xs {
+            font-size: 30px;
+            line-height: 40px;
+        }
+    }
+
+    .sec-text {
+        font-size: 18px;
+        color: $white-color;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+}
+
+/*CTA Area 6***********************/
+.cta-sec6 {
+    padding: 80px 100px;
+    border-radius: 30px;
+
+    @include lg {
+        padding: 80px 50px;
+    }
+}
+.cta-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include md {
+        display: block;
+    }
+
+    .cta-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+        padding-right: 80px;
+        margin-right: 80px;
+        min-width: 440px;
+
+        @include xl {
+            padding-right: 40px;
+            margin-right: 40px;
+            min-width: 360px;
+        }
+
+        @include md {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        @include vxs {
+            display: block;
+        }
+
+        .cta-icon {
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 90px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(11px);
+            transition: all .4s ease-in-out;
+
+            &:hover {
+                background-color: $title-color;
+            }
+
+            @include vxs {
+                margin-bottom: 20px;
+            }
+        }
+
+        .header-info {
+
+            &_link {
+                font-size: 30px;
+                font-weight: 600;
+                color: $white-color;
+                letter-spacing: -0.3px;
+                margin-bottom: 0;
+
+                @include xl {
+                    font-size: 24px;
+                }
+
+                a {
+                    color: inherit;
+                }
+            }
+        }
+    }
+
+    .title-area {
+        margin-right: 64px;
+
+        @include xl {
+            margin-right: 20px;
+        }
+
+        @include md {
+            margin: 30px 0 30px 0 !important;
+        }
+
+    }
+
+    .cta-group {
+        min-width: 160px;
+        justify-content: flex-end;
+        margin-left: auto;
+        flex: none;
+        @include md {
+            justify-content: flex-start;
+            margin: 0;
+        }
+    }
+}
+
+.cta-sec7 {
+    max-width: 1860px;
+    margin: auto;
+    border-radius: 200px 200px 0 0;
+    @include md {
+        border-radius: 40px 40px 0 0;
+    }
+}
+
+.cta-sec8 {
+    border-radius: 30px;
+    padding: 80px 0;
+    text-align: center;
+    .sec-text {
+        margin: 40px auto 33px;
+    }
+    .btn-wrap {
+        justify-content: center;
+        margin-bottom: 32px;
+    }
+}
