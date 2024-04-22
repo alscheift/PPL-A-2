@@ -22,6 +22,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_admin')->nullable();
             $table->foreign('id_admin')->references('id')->on('users');
             $table->enum("is_approved", ["Approved", "Not Approved", "Pending"])->default("Pending");
+            $table->boolean('is_damaged')->default(false);
+            $table->float('damage_percentage')->default(0);
+            $table->string('segmented_image_path')->nullable();
             $table->timestamps();
         });
     }
