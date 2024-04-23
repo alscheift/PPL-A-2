@@ -7,7 +7,7 @@ use App\Http\Controllers\PotholesController;
 Route::get('/', function () {
     return view('home');
 });
-
+Route::get('/', [PotholesController::class, 'showMap'])->name('home');
 
 Route::get('/laravel_version', function () {
     return view('welcome');

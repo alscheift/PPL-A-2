@@ -11,6 +11,7 @@ class PotholesController extends Controller
 {
     public function index()
     {
+        
         if (Gate::allows('admin', auth()->user())) {
             $potholes = Pothole::orderby('is_damaged', 'desc')->orderby('updated_at', 'desc')->get();
             return view('admin.potholes', compact('potholes'));
@@ -18,6 +19,12 @@ class PotholesController extends Controller
             $potholes = Pothole::orderby('is_damaged', 'desc')->orderby('updated_at', 'desc')->get();
             return view('user.potholes', compact('potholes'));
         }
+    }
+
+    public function showMap()
+    {
+        $potholes = Pothole::select('lat', 'long')->get(); // Mengambil data latitude dan longitude dari database potholes
+        return view('home', compact('potholes'));
     }
 
     public function create()

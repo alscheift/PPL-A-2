@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Webteck - Technology & IT Solutions HTML Template - Digital Agency</title>
+    <title>RoadSafety | Lapor Jalan Rusak</title>
     <meta name="author" content="Themeholy">
     <meta name="description" content="Webteck - Technology & IT Solutions HTML Template">
     <meta name="keywords" content="Webteck - Technology & IT Solutions HTML Template">
@@ -23,10 +23,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="../../download-version/assets/img/favicons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="../../download-version/assets/img/favicons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../../download-version/assets/img/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../../download-version/assets/img/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../download-version/assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../../download-version/assets/img/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../download-version/assets/img/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/fbG8hv3W/logo-mobil.png">
     <link rel="manifest" href="../../download-version/assets/img/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../../download-version/assets/img/favicons/ms-icon-144x144.png">
@@ -52,6 +49,8 @@
     <link rel="stylesheet" href="../../download-version/assets/css/swiper-bundle.min.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="../../download-version/assets/css/style.css">
+    <!-- Leaflet CSS -->
+    <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet">
 
 </head>
 
@@ -114,7 +113,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a class="icon-masking" href="/"><span data-mask-src="../../download-version/assets/img/logo.svg" class="mask-icon"></span><img src="../../download-version/assets/img/logo.svg" alt="RoadSafety"></a>
+                                <a class="icon-masking" href="/"><span data-mask-src="https://i.postimg.cc/QCrYcqsY/logo-utuh.png" class="mask-icon"></span><img src="https://i.postimg.cc/QCrYcqsY/logo-utuh.png" alt="RoadSafety" style="max-height: 110px;"></a>
                                 {{-- <a class="icon-masking" href="/"><span class="mask-icon">{{ config('app.name') }}</span></a> --}}
                             </div>
                         </div>
@@ -136,13 +135,22 @@
                                     <li>
                                         <a href="#faq">FAQ</a>
                                     </li>
+                                    @auth <!-- Tampilkan link menu dashboard jika pengguna telah login -->
+                                        <li>
+                                            <a href="{{ route('dashboard') }}" class="text-primary">Dashboard</a>
+                                        </li>
+                                    @endauth
                                 </ul>
                             </nav>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <div class="header-button">
-                                <a href="{{ route("register") }}" class="th-btn shadow-none">Sign Up<i class="fas fa-arrow-right ms-2"></i></a>
-                            </div>
+                        <div class="header-button">
+                            @auth <!-- Tampilkan ucapan selamat datang -->
+                            <span class="welcome-message">Selamat datang, {{ Auth::user()->name }}!</span>
+                            @else <!-- Tampilkan tombol "Sign Up" jika pengguna belum login -->
+                                <a href="{{ route("register") }}" class="th-btn shadow-none">Sign Up <i class="fas fa-arrow-right ms-2"></i></a>
+                            @endauth
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -161,10 +169,14 @@ Hero Area
                 <div class="ripple-shape">
                     <span class="ripple-1"></span><span class="ripple-2"></span><span class="ripple-3"></span><span class="ripple-4"></span><span class="ripple-5"></span><span class="ripple-6"></span>
                 </div>
-                <h1 class="hero-title">Laporkan Jalan Rusak Sekarang!</h1>
-                <p class="hero-text">Situs ini didedikasikan untuk meningkatkan kesadaran masyarakat tentang masalah jalan rusak serta menyediakan informasi terkait lokasi jalan rusak.</p>
+                <h1 class="hero-title text-white">Laporkan Jalan Rusak Sekarang!</h1>
+                <p class="hero-text text-white">Situs ini didedikasikan untuk meningkatkan kesadaran masyarakat tentang masalah jalan rusak serta menyediakan informasi terkait lokasi jalan rusak.</p>
                 <div class="btn-group">
-                    <a href="{{ route("register") }}" class="th-btn">Sign Up<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                    @auth <!-- Tampilkan tombol "Dashboard" jika pengguna telah login -->
+                        <a href="{{ route("dashboard") }}" class="th-btn">Dashboard <i class="fa-regular fa-arrow-right ms-2"></i></a>
+                    @else <!-- Tampilkan tombol "Sign Up" jika pengguna belum login -->
+                        <a href="{{ route("register") }}" class="th-btn">Sign Up <i class="fa-regular fa-arrow-right ms-2"></i></a>
+                    @endauth
                     <a href="/#about-us" class="th-btn">Learn More</a>
                 </div>
             </div>
@@ -180,12 +192,11 @@ Service Area
             <div class="row justify-content-center align-items-center">
                 <div class="col-sm-9 pe-xl-5">
                     <div class="title-area text-center text-lg-start">
-                        <div class="shadow-title color2 text-center">ABOUT US</div>
+                        <div class="shadow-title color2 text-center">TENTANG KAMI</div>
                         <span class="sub-title text-center">
                             <div class="icon-masking me-2">
                                 <span class="mask-icon" data-mask-src="../../download-version/assets/img/theme-img/title_shape_2.svg"></span>
-                                <img src="../../download-version/assets/img/theme-img/title_shape_2.svg" alt="shape">
-                            </div>WHAT WE DO
+                            </div>
                         </span>
                         <p class="text-center">RoadSafety merupakan sebuah platform pelaporan jalan rusak yang bertujuan untuk meningkatkan keselamatan pengguna jalan dan mengedukasi masyarakat terkait masalah infrastruktur jalan. Kami berkomitmen untuk memberikan solusi yang efektif dan mudah digunakan bagi masyarakat untuk melaporkan kondisi jalan yang memerlukan perbaikan.</p>
                     </div>
@@ -240,9 +251,9 @@ Process Area
                         <span class="mask-icon" data-mask-src="../../download-version/assets/img/theme-img/title_shape_2.svg"></span>
                         <img src="../../download-version/assets/img/theme-img/title_shape_2.svg" alt="shape">
                     </div>
-                    WORK PROCESS
+                    PROSES PELAPORAN
                 </span>
-                <h2 class="sec-title">How to work <span class="text-theme">it!</span></h2>
+                <h2 class="sec-title">Bagaimana cara <span class="text-theme">melapor?</span></h2>
             </div>
             <div class="process-card-area">
                 <div class="process-line">
@@ -296,6 +307,22 @@ Process Area
         Counter Area  
         ==============================-->
     <div id="statistics">
+        <!-- Leaflet Map -->
+        <div class="bg-top-center z-index-common space-top" id="about-us" data-bg-src="../../download-version/assets/img/bg/blog_bg_1.png">
+            <div class="text-center">
+                <div class="shadow-title">STATISTICS</div>
+                    <span class="sub-title">
+                        <div class="icon-masking me-2">
+                            <span class="mask-icon" data-mask-src="../../download-version/assets/img/theme-img/title_shape_2.svg"></span>
+                            <img src="../../download-version/assets/img/theme-img/title_shape_2.svg" alt="shape">
+                        </div>
+                        Potholes Map
+                    </span>
+                <h2 class="sec-title">Persebaran <span class="text-theme">Jalan Rusak</span></h2>
+                <div id="map" style="height: 400px;"></div>
+            </div>
+        </div>
+        </div>
         <div class="bg-theme space-extra" data-bg-src="../../download-version/assets/img/bg/counter_bg_1.png">
             <div class="container py-2">
                 <div class="row gy-40 justify-content-between">
@@ -361,7 +388,7 @@ Process Area
                         </div>
                         FAQ
                     </span>
-                    <h2 class="sec-title">Talk To About Any <span class="text-theme">Question?</span></h2>
+                    <h2 class="sec-title">Hal yang <span class="text-theme">sering ditanyakan</span></h2>
                 </div>
                 <div class="row">
                     <div class="col-xl-12">
@@ -497,6 +524,25 @@ Process Area
     <!-- Icon -->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <!-- Leaflet Map -->
+    <script>
+        // Inisialisasi peta
+        var map = L.map('map').setView([-7.535947456790532, 110.74740073685324], 11); // Ganti koordinat dan zoom level sesuai kebutuhan
+
+        // Tambahkan layer tile dari OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Ambil data pothole dari database dan tambahkan marker ke peta
+        @foreach($potholes as $pothole)
+            L.marker([{{ $pothole->lat }}, {{ $pothole->long }}]).addTo(map)
+                .bindPopup('{{ $pothole->description }}'); // Ganti description sesuai dengan atribut yang sesuai di database
+        @endforeach
+    </script>
 </body>
 
 </html>

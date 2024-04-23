@@ -1,9 +1,9 @@
 <div class="logo">
     <!-- <a href="index.html" class="logo-icon"><span class="logo-text">Neptune</span></a> -->
-    <a href="#" class="logo-icon"><span class="logo-text">{{ config('app.name') }}</span></a>
+    <a href="/" class="logo-icon"><span class="logo-text">{{ config('app.name') }}</span></a>
     <div class="sidebar-user-switcher user-activity-online">
         <a href="#">
-            <img src="../../assets/images/avatars/avatar.png">
+            <img src="https://i.postimg.cc/TwwQgYKS/avatar.png">
             <span class="activity-indicator"></span>
             <span class="user-info-text">{{ Auth::user()->name }}<br><span class="user-state-info">{{ Auth::user()->is_admin ? "Admin" : "User" }}</span></span>
         </a>
@@ -14,13 +14,13 @@
         <li class="sidebar-title">
             Apps
         </li>
-        <li class="active-page">
-            <a href="/" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+        <li class="{{ request()->is('dashboard*') ? 'active-page' : '' }}">
+            <a href="/dashboard" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
-        <li>
-            <a href="{{ Route('potholes.create')}}"><i class="material-icons-two-tone">add_circle</i>Lapor Pothole</a>
+        <li class="{{ request()->is('potholes/create') ? 'active-page' : '' }}">
+            <a href="{{ route('potholes.create') }}"><i class="material-icons-two-tone">add_circle</i>Lapor Pothole</a>
         </li>
-        <li>
+        <li class="{{ request()->is('potholes') ? 'active-page' : '' }}">
             <a href="/potholes"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
         </li>
         {{-- <li>
@@ -63,9 +63,10 @@
                 </li>
             </ul>
         </li> --}}
-        <li>
+        <li class="{{ request()->is('settings*') ? 'active-page' : '' }}">
             <a href="{{ route('settings.index') }}"><i class="material-icons-two-tone">settings</i>Settings</a>
         </li>
+
         <li class="divider"></li>
         <li>
             <form method="POST" action="{{ route('logout') }}" x-data>

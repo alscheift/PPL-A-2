@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Title -->
-    <title>{{ $title ?? config('app.title') }}</title>
+    <title>{{ $title ?? config('app.name') }} | Lapor Jalan Rusak</title>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -36,8 +36,7 @@
     <link href="../../assets/css/main.min.css" rel="stylesheet">
     <link href="../../assets/css/custom.css" rel="stylesheet">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/neptune.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/neptune.png" />
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/fbG8hv3W/logo-mobil.png">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
