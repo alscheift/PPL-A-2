@@ -34,11 +34,12 @@
                             <table id="datatable1" class="display" style="width:100%">
                                 <thead>
                                     <tr>
+                                        <th>Date</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Verificator</th>
+                                        {{-- <th>Verificator</th> --}}
                                         <th>View</th>
                                         <th>Action</th>
                                     </tr>
@@ -46,10 +47,11 @@
                                 <tbody>
                                     @foreach($potholes as $pothole)
                                         <tr>
+                                            <td>{{ $pothole->updated_at }}</td>
                                             <td>{{ $pothole->lat }}</td>
                                             <td>{{ $pothole->long }}</td>
                                             <td>{{ $pothole->desc }}</td>
-                                            <td>
+                                            {{-- <td>
                                                 @if($pothole->is_approved == 'Pending')
                                                     <span class="badge badge-warning">{{ $pothole->is_approved }}</span>
                                                 @elseif($pothole->is_approved == 'Verified')
@@ -58,7 +60,14 @@
                                                     <span class="badge badge-danger">{{ $pothole->is_approved }}</span>
                                                 @endif
                                             </td>
-                                            <td>admin1</td>
+                                            <td>admin1</td> --}}
+                                            <td>
+                                                @if($pothole->is_damaged)
+                                                    <span class="badge badge-danger">Damaged</span>
+                                                @else
+                                                    <span class="badge badge-success">Not Damaged</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <div class="invoice-info-actions">
                                                     <button type="button" class="btn btn-info view-image" data-image="{{ $pothole->is_damaged ? $pothole->getSegmentedImageAttribute() : Storage::url($pothole->image) }}" data-toggle="tooltip" data-placement="top" title="Preview the Image"><i class="material-icons">image</i></button>

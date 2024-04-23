@@ -12,10 +12,10 @@ class PotholesController extends Controller
     public function index()
     {
         if (Gate::allows('admin', auth()->user())) {
-            $potholes = Pothole::all();
+            $potholes = Pothole::orderby('is_damaged', 'desc')->orderby('updated_at', 'desc')->get();
             return view('admin.potholes', compact('potholes'));
         } else {
-            $potholes = Pothole::where('id_user', auth()->id())->get();
+            $potholes = Pothole::orderby('is_damaged', 'desc')->orderby('updated_at', 'desc')->get();
             return view('user.potholes', compact('potholes'));
         }
     }
