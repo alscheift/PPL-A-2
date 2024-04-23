@@ -10,7 +10,7 @@ class RoadSegmentation
 {
     public static function predict($image_path)
     {
-        $predict_url = env('ML_API_URL').'/predict';
+        $predict_url = env('ML_API_URL').'/predict'.'/';
         
         $client = new Client();
         $body = [
