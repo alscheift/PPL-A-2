@@ -16,7 +16,9 @@ class Pothole extends Model
         'image',
         'is_approved',
         'id_user',
-        'id_admin'
+        'is_damaged',
+        'damage_percentage',
+        'segmented_image_path',
     ];
 
     protected $hidden = [
@@ -29,4 +31,11 @@ class Pothole extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function getSegmentedImageAttribute()
+    {
+        $ml_images_url = env('ML_API_URL').'/'.'result/';
+        return $ml_images_url.$this->segmented_image_path;
+    }
+
 }
