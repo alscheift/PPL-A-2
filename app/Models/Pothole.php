@@ -34,7 +34,7 @@ class Pothole extends Model
 
     public function getSegmentedImageAttribute()
     {
-        $ml_images_url = env('ML_API_URL').'/'.'result/';
+        $ml_images_url = 'http://'.env('ML_API_URL').'/'.'result/';
         return $ml_images_url.$this->segmented_image_path;
     }
 
