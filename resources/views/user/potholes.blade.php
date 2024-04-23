@@ -46,22 +46,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($potholes as $pothole)
+                                @foreach($potholes as $pothole)
+                                    @if($pothole->id_user == Auth::id())
                                         <tr>
                                             <td>{{ $pothole->updated_at }}</td>
                                             <td>{{ $pothole->lat }}</td>
                                             <td>{{ $pothole->long }}</td>
                                             <td>{{ $pothole->desc }}</td>
-                                            {{-- <td>
-                                                @if($pothole->is_approved == 'Pending')
-                                                    <span class="badge badge-warning">{{ $pothole->is_approved }}</span>
-                                                @elseif($pothole->is_approved == 'Verified')
-                                                    <span class="badge badge-success">{{ $pothole->is_approved }}</span>
-                                                @else
-                                                    <span class="badge badge-danger">{{ $pothole->is_approved }}</span>
-                                                @endif
-                                            </td>
-                                            <td>admin1</td> --}}
                                             <td>
                                                 @if($pothole->is_damaged)
                                                     <span class="badge badge-danger">Damaged</span>
@@ -87,7 +78,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @endif
+                                @endforeach
                                 </tbody>
 
                                 <tfoot>
