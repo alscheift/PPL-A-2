@@ -18,12 +18,12 @@
             <a href="/" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
         <li>
-            <a href="{{ Route('potholes.create')}}"><i class="material-icons-two-tone">edit</i>Lapor Pothole</a>
+            <a href="{{ Route('potholes.create')}}"><i class="material-icons-two-tone">add_circle</i>Lapor Pothole</a>
         </li>
         <li>
             <a href="/potholes"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
         </li>
-        <li>
+        {{-- <li>
             <a href="#"><i class="material-icons-two-tone">cloud_queue</i>File Manager</a>
         </li>
         <li>
@@ -62,7 +62,7 @@
                     <a href="#">Error</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         <li>
             <a href="{{ route('settings.index') }}"><i class="material-icons-two-tone">settings</i>Settings</a>
         </li>
