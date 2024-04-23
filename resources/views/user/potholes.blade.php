@@ -40,6 +40,7 @@
                                         <th>Description</th>
                                         <th>Status</th>
                                         {{-- <th>Verificator</th> --}}
+                                        <th>%</th>
                                         <th>View</th>
                                         <th>Action</th>
                                     </tr>
@@ -69,6 +70,13 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if($pothole->is_damaged)
+                                                    {{ $pothole->damage_percentage }}%
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+                                            <td>
                                                 <div class="invoice-info-actions">
                                                     <button type="button" class="btn btn-info view-image" data-image="{{ $pothole->is_damaged ? $pothole->getSegmentedImageAttribute() : Storage::url($pothole->image) }}" data-toggle="tooltip" data-placement="top" title="Preview the Image"><i class="material-icons">image</i></button>
                                                 </div>
@@ -84,11 +92,13 @@
 
                                 <tfoot>
                                     <tr>
+                                        <th>Date</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Verificator</th>
+                                        {{-- <th>Verificator</th> --}}
+                                        <th>%</th>
                                         <th>View</th>
                                         <th>Action</th>
                                     </tr>
