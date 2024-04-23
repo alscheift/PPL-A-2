@@ -5,7 +5,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PotholesController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 
@@ -19,9 +19,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/', function () {
-        return view('index');
-    })->name('dashboard');;
+    // Route::get('/', function () {
+    //     return view('index');
+    // })->name('dashboard');;
 
     Route::get('/dashboard', function () {
         return view('index');
@@ -48,6 +48,6 @@ Route::get('/new-signup', function () {
     return view('new-signup');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+// Route::get('/home', function () {
+//     return view('home');
+// });

@@ -71,105 +71,34 @@
    		Code Start From Here 
 	******************************** -->
 
-
-    {{-- <!--==============================
-    Sidemenu
-============================== -->
-    <div class="sidemenu-wrapper ">
-        <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-            <div class="widget woocommerce widget_shopping_cart">
-                <h3 class="widget_title">Shopping cart</h3>
-                <div class="widget_shopping_cart_content">
-                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="../../download-version/assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">Gaming Computer</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>940.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="../../download-version/assets/img/product/product_thumb_1_2.jpg" alt="Cart Image">Smartphone Vivo V9</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>899.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="../../download-version/assets/img/product/product_thumb_1_3.jpg" alt="Cart Image">SanDisk Flash Drive</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>756.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="../../download-version/assets/img/product/product_thumb_1_4.jpg" alt="Cart Image">Smart Power Bank</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>723.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="../../download-version/assets/img/product/product_thumb_1_5.jpg" alt="Cart Image">Apple Smartwatch</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>1080.00</span>
-                            </span>
-                        </li>
-                    </ul>
-                    <p class="woocommerce-mini-cart__total total">
-                        <strong>Subtotal:</strong>
-                        <span class="woocommerce-Price-amount amount">
-                            <span class="woocommerce-Price-currencySymbol">$</span>4398.00</span>
-                    </p>
-                    <p class="woocommerce-mini-cart__buttons buttons btn-wrap">
-                        <a href="cart.html" class="th-btn wc-forward">View cart</a>
-                        <a href="checkout.html" class="th-btn checkout wc-forward">Checkout</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="popup-search-box d-none d-lg-block">
-        <button class="searchClose"><i class="fal fa-times"></i></button>
-        <form action="#">
-            <input type="text" placeholder="What are you looking for?">
-            <button type="submit"><i class="fal fa-search"></i></button>
-        </form>
-    </div><!--============================== --}}
-    <!-- Mobile Menu
+    <!--==============================
+    Mobile Menu
   ============================== -->
     <div class="th-menu-wrapper">
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <div class="logo">
-                    <a href="/home" class="logo-icon"><span class="logo-text">{{ config('app.name') }}</span></a>
-                </div>
+                <a href="/"><img src="../../download-version/assets/img/logo.svg" alt="RoadSafety"></a>
             </div>
             <div class="th-mobile-menu">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li>
-                        <a href="#">Services</a>
+                        <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Pages</a>
+                        <a href="#about-us">About Us</a>
                     </li>
                     <li>
-                        <a href="#">Blog</a>
+                        <a href="#process">Tutorials</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="#statistics">Statistics</a>
+                    </li>
+                    <li>
+                        <a href="#faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="{{ route("register") }}" class="th-btn shadow-none">Sign Up<i class="fas fa-arrow-right ms-2"></i></a>
                     </li>
                 </ul>
             </div>
@@ -185,7 +114,8 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="/home" class="logo-icon"><span class="logo-text">{{ config('app.name') }}</span></a>
+                                <a class="icon-masking" href="/"><span data-mask-src="../../download-version/assets/img/logo.svg" class="mask-icon"></span><img src="../../download-version/assets/img/logo.svg" alt="RoadSafety"></a>
+                                {{-- <a class="icon-masking" href="/"><span class="mask-icon">{{ config('app.name') }}</span></a> --}}
                             </div>
                         </div>
                         <div class="col-auto">
@@ -232,10 +162,10 @@ Hero Area
                     <span class="ripple-1"></span><span class="ripple-2"></span><span class="ripple-3"></span><span class="ripple-4"></span><span class="ripple-5"></span><span class="ripple-6"></span>
                 </div>
                 <h1 class="hero-title">Laporkan Jalan Rusak Sekarang!</h1>
-                <p class="hero-text">Situs ini didedikasikan untuk meningkatkan kesadaran masyarakat tentang <br> masalah jalan rusak serta menyediakan informasi terkait lokasi jalan rusak.</p>
+                <p class="hero-text">Situs ini didedikasikan untuk meningkatkan kesadaran masyarakat tentang masalah jalan rusak serta menyediakan informasi terkait lokasi jalan rusak.</p>
                 <div class="btn-group">
                     <a href="{{ route("register") }}" class="th-btn">Sign Up<i class="fa-regular fa-arrow-right ms-2"></i></a>
-                    <a href="/home" class="th-btn">Learn More</a>
+                    <a href="/#about-us" class="th-btn">Learn More</a>
                 </div>
             </div>
         </div>
@@ -245,7 +175,7 @@ Hero Area
     <!--======== / Hero Section ========--><!--==============================
 Service Area  
 ==============================-->
-    <section class="bg-top-center z-index-common space-top" id="about-us" data-bg-src="../../download-version/assets/img/bg/why_bg_1.png">
+    <section class="bg-top-center z-index-common space-top" id="about-us" data-bg-src="../../download-version/assets/img/bg/blog_bg_1.png" style="background-size: cover;">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-sm-9 pe-xl-5">
@@ -264,7 +194,7 @@ Service Area
 
             <div class="slider-area">
                 <div class="swiper th-slider has-shadow" id="serviceSlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"4"}}}'>
-                    <div class="swiper-wrapper justify-content-center">
+                    <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="service-grid">
                                 <div class="service-grid_icon">
@@ -301,7 +231,7 @@ Service Area
     </section><!--==============================
 Process Area  
 ==============================-->
-    <section class="bg-smoke" id="process" data-bg-src="../../download-version/assets/img/bg/process_bg_1.png">
+    <section class="bg-smoke" id="process" data-bg-src="../../download-version/assets/img/bg/testimonial_bg_7.jpg">
         <div class="container space">
             <div class="title-area text-center">
                 <div class="shadow-title">TUTORIALS</div>
