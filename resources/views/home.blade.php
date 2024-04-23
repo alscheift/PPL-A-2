@@ -417,6 +417,92 @@ Process Area
             </div>
         </div>
     </div><!--==============================
+    Faq Area
+    ==============================-->
+    <div id="faq">
+        <div class="space">
+            <div class="container">
+                <div class="title-area text-center">
+                    <div class="shadow-title">FREQUENLTY ASKED QUESTIONS</div>
+                    <span class="sub-title">
+                        <div class="icon-masking me-2">
+                            <span class="mask-icon" data-mask-src="../../download-version/assets/img/theme-img/title_shape_2.svg"></span>
+                            <img src="../../download-version/assets/img/theme-img/title_shape_2.svg" alt="shape">
+                        </div>
+                        FAQ
+                    </span>
+                    <h2 class="sec-title">Talk To About Any <span class="text-theme">Question?</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="accordion-area accordion" id="faqAccordion">
+
+
+                            <div class="accordion-card style2 ">
+                                <div class="accordion-header" id="collapse-item-1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">Bagaimana cara menggunakan aplikasi ini?</button>
+                                </div>
+                                <div id="collapse-1" class="accordion-collapse collapse " aria-labelledby="collapse-item-1" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">Pengguna diminta untuk login terlebih dahulu kemudian dapat memilih menu buat laporan. Pengguna dapat mengambil foto kerusakan jalan menggunakan perangkat seluler. Aplikasi kemudian akan memanfaatkan data lokasi untuk memberikan informasi tentang titik rusak tersebut. Laporan kemudian dikirim ke pemerintah untuk tindakan perbaikan.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="accordion-card style2">
+                                <div class="accordion-header" id="collapse-item-2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">Informasi apa yang perlu saya berikan saat melaporkan kerusakan jalan?</button>
+                                </div>
+                                <div id="collapse-2" class="accordion-collapse collapse " aria-labelledby="collapse-item-2" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">Saat melaporkan kerusakan jalan, pengguna harus memberikan informasi berikut: <li>Lokasi kerusakan</li><li>Foto kerusakan jalan</li><li>Deskripsi</li></p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="accordion-card style2 ">
+                                <div class="accordion-header" id="collapse-item-3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">Apa yang terjadi setelah saya melaporkan jalan rusak?</button>
+                                </div>
+                                <div id="collapse-3" class="accordion-collapse collapse " aria-labelledby="collapse-item-3" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">Setelah pengguna melaporkan kondisi jalan yang rusak, sistem akan memvalidasi laporan tersebut.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="accordion-card style2 ">
+                                <div class="accordion-header" id="collapse-item-4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">Apakah data pribadi saya aman saat menggunakan aplikasi ini?</button>
+                                </div>
+                                <div id="collapse-4" class="accordion-collapse collapse " aria-labelledby="collapse-item-4" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">Data pribadi pengguna aman saat menggunakan aplikasi ini. Data yang pengguna kirimkan, seperti foto dan lokasi jalan rusak, digunakan untuk melaporkan kondisi jalan kepada pemerintah. Data pribadi pengguna dilindungi dan tidak akan dibagikan kepada pihak ketiga.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-card style2 ">
+                                <div class="accordion-header" id="collapse-item-5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">Bagaimana saya bisa memberikan pertanyaan tentang aplikasi?</button>
+                                </div>
+                                <div id="collapse-5" class="accordion-collapse collapse " aria-labelledby="collapse-item-4" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p class="faq-text">Untuk pertanyaan lebih lanjut, pengguna dapat menghubungi tim kami melalui email jalanrusak@gmail.com atau hubungi 0812345678910</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--==============================
 	Footer Area
 ==============================-->
     <footer class="footer-wrapper footer-layout3" data-bg-src="../../download-version/assets/img/bg/footer_bg_2.jpg">
