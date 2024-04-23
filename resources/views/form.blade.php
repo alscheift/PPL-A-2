@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-12">
                         <label for="desc" class="form-label">Deskripsi</label>
-                        <input type="text" class="form-control" name="desc" id="desc" placeholder="Masukkan keterangan terkait kerusakan jalan">
+                        <input type="text" class="form-control" name="desc" id="desc" placeholder="Akan mengisi alamat secara otomatis, silakan tambahkan keterangan lainnya">
                     </div>
                     <div class="col-12">
                         <label for="inputLat" class="form-label">Upload Gambar</label>
@@ -54,6 +54,20 @@
 @section('pagescripts')
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
+        // Fungsi untuk mengambil alamat dari Nominatim API berdasarkan koordinat
+        function getAddressFromCoordinates(lat, lon) {
+            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+                .then(response => response.json())
+                .then(data => {
+                    const address = data.display_name; // Ambil alamat dari respons JSON
+                    // Isi deskripsi pada formulir dengan alamat yang ditemukan
+                    document.getElementById('desc').value = address;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
         // Inisialisasi peta
         var map = L.map('map').setView([-7.4680279, 110.9343136], 13);
 
@@ -75,6 +89,7 @@
             inputLat.value = e.latlng.lat;
             inputLong.value = e.latlng.lng;
 
+            getAddressFromCoordinates(e.latlng.lat, e.latlng.lng); // Panggil fungsi untuk mengambil alamat
             previousMarker = marker;
         }
 

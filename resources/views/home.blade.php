@@ -539,8 +539,10 @@ Process Area
 
         // Ambil data pothole dari database dan tambahkan marker ke peta
         @foreach($potholes as $pothole)
-            L.marker([{{ $pothole->lat }}, {{ $pothole->long }}]).addTo(map)
-                .bindPopup('{{ $pothole->description }}'); // Ganti description sesuai dengan atribut yang sesuai di database
+            @if($pothole->is_damaged == 1)
+                L.marker([{{ $pothole->lat }}, {{ $pothole->long }}]).addTo(map)
+                    .bindPopup('{{ $pothole->desc }}'); // Ganti description sesuai dengan atribut yang sesuai di database
+            @endif
         @endforeach
     </script>
 </body>

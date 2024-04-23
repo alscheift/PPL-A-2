@@ -23,7 +23,7 @@ class PotholesController extends Controller
 
     public function showMap()
     {
-        $potholes = Pothole::select('lat', 'long')->get(); // Mengambil data latitude dan longitude dari database potholes
+        $potholes = Pothole::select('lat', 'long', 'desc', 'is_damaged')->get(); // Mengambil data latitude dan longitude dari database potholes
         return view('home', compact('potholes'));
     }
 
