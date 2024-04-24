@@ -34,12 +34,16 @@
                         <input type="text" class="form-control" name="long" id="long" placeholder="Klik lokasi pada peta" readonly>
                     </div>
                     <div class="col-12">
+                        <label for="desc" class="form-label">Alamat</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Akan mengisi alamat secara otomatis" readonly>
+                    </div>
+                    <div class="col-12">
                         <label for="desc" class="form-label">Deskripsi</label>
-                        <input type="text" class="form-control" name="desc" id="desc" placeholder="Akan mengisi alamat secara otomatis, silakan tambahkan keterangan lainnya">
+                        <input type="text" class="form-control" name="desc" id="desc" placeholder="Silakan tambahkan keterangan tentang kerusakan jalan" required>
                     </div>
                     <div class="col-12">
                         <label for="inputLat" class="form-label">Upload Gambar</label>
-                        <input type="file" name="file" class="form-control">
+                        <input type="file" name="file" class="form-control" required>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Kirim</button>
@@ -61,7 +65,7 @@
                 .then(data => {
                     const address = data.display_name; // Ambil alamat dari respons JSON
                     // Isi deskripsi pada formulir dengan alamat yang ditemukan
-                    document.getElementById('desc').value = address;
+                    document.getElementById('address').value = address;
                 })
                 .catch(error => {
                     console.error('Error:', error);

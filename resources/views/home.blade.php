@@ -541,7 +541,7 @@ Process Area
         @foreach($potholes as $pothole)
             @if($pothole->is_damaged == 1)
                 L.marker([{{ $pothole->lat }}, {{ $pothole->long }}]).addTo(map)
-                    .bindPopup('{{ $pothole->desc }}'); // Ganti description sesuai dengan atribut yang sesuai di database
+                    .bindPopup('Deskripsi: {{ $pothole->desc }} <br> Alamat: {{ $pothole->address }}'); // Ganti description sesuai dengan atribut yang sesuai di database
             @endif
         @endforeach
     </script>

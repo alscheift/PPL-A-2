@@ -23,8 +23,18 @@ class PotholesController extends Controller
 
     public function showMap()
     {
-        $potholes = Pothole::select('lat', 'long', 'desc', 'is_damaged')->get(); // Mengambil data latitude dan longitude dari database potholes
+        $potholes = Pothole::select('lat', 'long', 'desc', 'is_damaged', 'address')->get(); // Mengambil data latitude dan longitude dari database potholes
         return view('home', compact('potholes'));
+    }
+
+    public function destroy($id)
+    {
+        $potholes = Pothole::findOrFail($id);
+        // Hapus data pothole dari database
+        $potholes->delete();
+
+        // Redirect ke halaman dashboard atau halaman daftar pothole
+        return redirect()->route('potholes.index')->with('success', 'Pothole deleted successfully');
     }
 
     public function create()
@@ -37,6 +47,7 @@ class PotholesController extends Controller
             'lat' => 'required',
             'long' => 'required',
             'desc' => 'required',
+            'address' => 'required',
         ]);
 
         $data['id_user'] = auth()->id();

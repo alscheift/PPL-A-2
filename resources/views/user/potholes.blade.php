@@ -37,6 +37,7 @@
                                         <th>Date</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
+                                        <th>Address</th>
                                         <th>Description</th>
                                         <th>Status</th>
                                         {{-- <th>Verificator</th> --}}
@@ -52,6 +53,7 @@
                                             <td>{{ $pothole->updated_at }}</td>
                                             <td>{{ $pothole->lat }}</td>
                                             <td>{{ $pothole->long }}</td>
+                                            <td>{{ $pothole->address }}</td>
                                             <td>{{ $pothole->desc }}</td>
                                             <td>
                                                 @if($pothole->is_damaged)
@@ -76,6 +78,12 @@
                                                 <div class="invoice-info-actions">
                                                     <button type="button" class="btn btn-primary view-location" data-lat="{{ $pothole->lat }}" data-lng="{{ $pothole->long }}" data-toggle="tooltip" data-placement="top" title="View Location"><i class="material-icons">place</i></button>
                                                 </div>
+                                                <br>
+                                                <form id="deleteForm{{ $pothole->id }}" action="{{ route('potholes.destroy', $pothole->id) }}" method="POST" style="display: inline-block;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn btn-danger delete-pothole" data-toggle="tooltip" data-placement="top" title="Delete"><i class="material-icons">delete</i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endif
@@ -171,6 +179,19 @@
         });
     });
 </script>
+<script>
+    // deletion modal
+    document.querySelectorAll('.delete-pothole').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Hentikan aksi default dari form
 
+            const confirmation = window.confirm('Apakah Anda yakin ingin menghapus pothole ini?');
+            if (confirmation) {
+                const form = this.closest('form');
+                form.submit(); // Kirim form DELETE ke server
+            }
+        });
+    });
+</script>
 
 @endsection

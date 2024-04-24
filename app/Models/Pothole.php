@@ -12,6 +12,7 @@ class Pothole extends Model
     protected $fillable = [
         'lat',
         'long',
+        'address',
         'desc',
         'image',
         'is_approved',
