@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('is_damaged')->default(false);
             $table->float('damage_percentage')->default(0);
             $table->string('segmented_image_path')->nullable();
+            $table->string('address');
             $table->timestamps();
         });
     }
