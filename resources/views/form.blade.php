@@ -63,6 +63,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                @if($latestPothole)
                 <div class="modal-body">
                     <p><strong>Latitude:</strong> {{ $latestPothole->lat }}</p>
                     <p><strong>Longitude:</strong> {{ $latestPothole->long }}</p>
@@ -88,6 +89,16 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
                 </div>
+                <script>
+                    document.getElementById('closeButton').addEventListener('click', function() {
+                        $('#successModal').modal('hide');
+                    });
+                    // Menutup modal saat tombol close pada header modal ditekan
+                    document.getElementById('closeSuccessModal').addEventListener('click', function() {
+                        $('#successModal').modal('hide');
+                    });
+                </script>
+                @endif
             </div>
         </div>
     </div>
@@ -148,13 +159,5 @@
             }
         });
     </script>
-    <script>
-        document.getElementById('closeButton').addEventListener('click', function() {
-            $('#successModal').modal('hide');
-        });
-        // Menutup modal saat tombol close pada header modal ditekan
-        document.getElementById('closeSuccessModal').addEventListener('click', function() {
-            $('#successModal').modal('hide');
-        });
-    </script>
+    
 @endsection
