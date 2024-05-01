@@ -24,8 +24,8 @@
         <li class="{{ request()->is('users*') ? 'active-page' : '' }}">
             <a href="{{ route('admin.users.index') }}"><i class="material-icons-two-tone">people</i>Users</a>
         </li>
-        <li class="{{ request()->is('potholes') ? 'active-page' : '' }}">
-            <a href="/potholes"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
+        <li class="{{ request()->is('potholes*') ? 'active-page' : '' }}">
+            <a href="{{ route('admin.potholes.index') }}"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
         </li>
         {{-- <li>
             <a href="#"><i class="material-icons-two-tone">cloud_queue</i>File Manager</a>
