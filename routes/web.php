@@ -35,7 +35,7 @@ Route::group([
             return redirect()->route('admin.dashboard.index');
         }
 
-        return view('user.dashboard.index');
+        return view('user.Dashboard.index');
     })->name('dashboard');
 
     Route::get('/default_dashboard', function () {
