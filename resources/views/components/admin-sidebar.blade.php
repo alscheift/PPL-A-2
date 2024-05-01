@@ -15,7 +15,7 @@
             HAHAHA
         </li>
         <li class="{{ request()->is('dashboard*') ? 'active-page' : '' }}">
-            <a href="{{ route('admin.admin.dashboard') }}" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+            <a href="{{ route('admin.dashboard.index') }}" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
         <li class="{{ request()->is('potholes/create') ? 'active-page' : '' }}">
             <a href="{{ route('potholes.create') }}"><i class="material-icons-two-tone">add_circle</i>Lapor Pothole</a>

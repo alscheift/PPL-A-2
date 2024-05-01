@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PotholesController;
+// Admin
 use App\Http\Controllers\admin\PotholesController as PotholesAdminController;
+use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\admin\UsersController as AdminUsersController;
 
 Route::get('/', function () {
     return view('home');
@@ -68,4 +71,6 @@ Route::group([
     'as' => 'admin.'
 ], function () {
     Route::resource('potholes', PotholesAdminController::class);
+    Route::resource('dashboard', AdminDashboardController::class);
+    Route::resource('users', AdminUsersController::class);
 });
