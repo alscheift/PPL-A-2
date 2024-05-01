@@ -15,10 +15,14 @@
             HAHAHA
         </li>
         <li class="{{ request()->is('dashboard*') ? 'active-page' : '' }}">
-            <a href="/dashboard" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+            <a href="{{ route('admin.admin.dashboard') }}" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
         <li class="{{ request()->is('potholes/create') ? 'active-page' : '' }}">
             <a href="{{ route('potholes.create') }}"><i class="material-icons-two-tone">add_circle</i>Lapor Pothole</a>
+        </li>
+        {{-- Users --}}
+        <li class="{{ request()->is('users*') ? 'active-page' : '' }}">
+            <a href="{{ route('admin.users.index') }}"><i class="material-icons-two-tone">people</i>Users</a>
         </li>
         <li class="{{ request()->is('potholes') ? 'active-page' : '' }}">
             <a href="/potholes"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
