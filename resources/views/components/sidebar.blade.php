@@ -2,7 +2,7 @@
     <!-- <a href="index.html" class="logo-icon"><span class="logo-text">Neptune</span></a> -->
     <a href="/" class="logo-icon"><span class="logo-text">{{ config('app.name') }}</span></a>
     <div class="sidebar-user-switcher user-activity-online">
-        <a href="#">
+        <a href="{{ route('settings.index') }}">
             <img src="https://i.postimg.cc/TwwQgYKS/avatar.png">
             <span class="activity-indicator"></span>
             <span class="user-info-text">{{ Auth::user()->name }}<br><span class="user-state-info">{{ Auth::user()->is_admin ? "Admin" : "User" }}</span></span>
