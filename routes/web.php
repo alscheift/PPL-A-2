@@ -4,6 +4,10 @@ use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PotholesController;
+// Admin
+use App\Http\Controllers\admin\PotholesController as AdminPotholesController;
+use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\admin\UsersController as AdminUsersController;
 
 Route::get('/', function () {
     return view('home');
@@ -25,7 +29,9 @@ Route::group([
     'prefix' => 'dashboard'
 ], function () {
     Route::get('/', function () {
-
+        if (auth()->user()->is_admin) {
+            return redirect()->route('admin.potholes.index');
+        }
 
         return view('index');
     })->name('dashboard');
@@ -68,4 +74,5 @@ Route::group([
     Route::resource('potholes', PotholesController::class);
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::post('/user/{id}/verify', [UserController::class, 'verifyUser'])->name('users.verify');
+    Route::resource('dashboard', AdminDashboardController::class);
 });
