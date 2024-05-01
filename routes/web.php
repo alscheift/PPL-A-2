@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingsController;
@@ -10,7 +9,7 @@ use App\Http\Controllers\PotholesController;
 // Admin
 use App\Http\Controllers\admin\PotholesController as AdminPotholesController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\admin\UsersController as AdminUsersController;
+use App\Http\Controllers\admin\UserController as AdminUsersController;
 
 Route::get('/', function () {
     return view('home');
@@ -77,7 +76,7 @@ Route::group([
     'as' => 'admin.'
 ], function () {
     Route::resource('potholes', AdminPotholesController::class);
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/user/{id}/verify', [UserController::class, 'verifyUser'])->name('users.verify');
+    Route::get('/users', [AdminUsersController::class, 'index'])->name('users.index');
+    Route::post('/user/{id}/verify', [AdminUsersController::class, 'verifyUser'])->name('users.verify');
     Route::resource('dashboard', AdminDashboardController::class);
 });
