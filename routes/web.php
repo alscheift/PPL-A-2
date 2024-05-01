@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PotholesController;
@@ -19,7 +20,7 @@ Route::group([
         'auth:sanctum',
         config('jetstream.auth_session'),
         'verified',
-    
+
     ],
     'prefix' => 'dashboard'
 ], function () {
@@ -65,4 +66,6 @@ Route::group([
     'as' => 'admin.'
 ], function () {
     Route::resource('potholes', PotholesController::class);
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::post('/user/{id}/verify', [UserController::class, 'verifyUser'])->name('users.verify');
 });
