@@ -11,20 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('potholes', function (Blueprint $table) {
-            $table->boolean('is_damaged')->default(false);
-            $table->integer('damage_percentage')->default(0);
-        });
+        // Check if the 'is_damaged' column doesn't exist before adding it
+        if (!Schema::hasColumn('potholes', 'is_damaged')) {
+            Schema::table('potholes', function (Blueprint $table) {
+                $table->boolean('is_damaged')->default(false);
+                $table->boolean('is_fixed')->default(false);
+                $table->integer('damage_percentage')->default(0);
+            });
+        }
     }
 
     /**
      * Reverse the migrations.
      */
+
     public function down(): void
     {
-        Schema::table('potholes', function (Blueprint $table) {
-            $table->dropColumn('is_damaged');
-            $table->dropColumn('damage_percentage');
-        });
+        if (Schema::hasColumn('potholes', 'is_damaged')) {
+            Schema::table('potholes', function (Blueprint $table) {
+                $table->dropColumn('is_damaged');
+                $table->dropColumn('is_fixed');
+                $table->dropColumn('damage_percentage');
+            });
+        }
     }
 };

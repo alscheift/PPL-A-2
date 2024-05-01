@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasColumn('potholes', 'address')) {
+        if (!Schema::hasColumn('potholes', 'is_fixed')) {
             Schema::table('potholes', function (Blueprint $table) {
-                $table->string('address');
-                // $table->dropColumn('is_fixed');
-                // $table->dropColumn('damage_percentage');
+                // $table->boolean('is_damaged')->default(false);
+                $table->boolean('is_fixed')->default(false);
+                // $table->integer('damage_percentage')->default(0);
             });
         }
     }
@@ -25,10 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        if (Schema::hasColumn('potholes', 'address')) {
+        if (Schema::hasColumn('potholes', 'is_fixed')) {
             Schema::table('potholes', function (Blueprint $table) {
-                $table->dropColumn('address');
-                // $table->dropColumn('is_fixed');
+                // $table->dropColumn('is_damaged');
+                $table->dropColumn('is_fixed');
                 // $table->dropColumn('damage_percentage');
             });
         }
