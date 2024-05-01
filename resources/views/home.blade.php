@@ -149,6 +149,7 @@
                             <span class="welcome-message">Selamat datang, {{ Auth::user()->name }}!</span>
                             @else <!-- Tampilkan tombol "Sign Up" jika pengguna belum login -->
                                 <a href="{{ route("register") }}" class="th-btn shadow-none">Sign Up <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="{{ route("login") }}" class="th-btn shadow-none">Login <i class="fas fa-arrow-right ms-2"></i></a>
                             @endauth
                         </div>
                         </div>
