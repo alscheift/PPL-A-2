@@ -42,7 +42,7 @@
                                         <th>Status</th>
                                         {{-- <th>Verificator</th> --}}
                                         <th>%</th>
-                                        <th>View</th>
+                                        <th>Verified</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -70,13 +70,21 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <div class="invoice-info-actions">
-                                                    <button type="button" class="btn btn-info view-image" data-image="{{ $pothole->is_damaged ? $pothole->getSegmentedImageAttribute() : Storage::url($pothole->image) }}" data-toggle="tooltip" data-placement="top" title="Preview the Image"><i class="material-icons">image</i></button>
-                                                </div>
+                                                @if($pothole->is_approved == 'Approved')
+                                                    <span class="badge badge-success">Approved</span>
+                                                @elseif($pothole->is_approved == 'Not Approved')
+                                                    <span class="badge badge-danger">Not Approved</span>
+                                                @elseif($pothole->is_approved == 'Pending')
+                                                    <span class="badge badge-warning">Pending</span>
+                                            @endif
                                             </td>
                                             <td>
                                                 <div class="invoice-info-actions">
                                                     <button type="button" class="btn btn-primary view-location" data-lat="{{ $pothole->lat }}" data-lng="{{ $pothole->long }}" data-toggle="tooltip" data-placement="top" title="View Location"><i class="material-icons">place</i></button>
+                                                </div>
+                                                <br>
+                                                <div class="invoice-info-actions">
+                                                    <button type="button" class="btn btn-info view-image" data-image="{{ $pothole->is_damaged ? $pothole->getSegmentedImageAttribute() : Storage::url($pothole->image) }}" data-toggle="tooltip" data-placement="top" title="Preview the Image"><i class="material-icons">image</i></button>
                                                 </div>
                                                 <br>
                                                 <form id="deleteForm{{ $pothole->id }}" action="{{ route('potholes.destroy', $pothole->id) }}" method="POST" style="display: inline-block;">
@@ -99,7 +107,7 @@
                                         <th>Status</th>
                                         {{-- <th>Verificator</th> --}}
                                         <th>%</th>
-                                        <th>View</th>
+                                        <th>Verified</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>

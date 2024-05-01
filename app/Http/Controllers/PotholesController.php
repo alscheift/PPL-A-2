@@ -51,8 +51,13 @@ class PotholesController extends Controller
         ]);
 
         $data['id_user'] = auth()->id();
-        $data['is_approved'] = 'Pending';
-
+        if(auth()->user()->is_verified) {
+            $data['is_approved'] = 'Approved';
+        }
+        else {
+            $data['is_approved'] = 'Pending';
+        }
+        
         // store image
         $imagePath = request('file')->store('images', 'public');
         $data['image'] = $imagePath;
