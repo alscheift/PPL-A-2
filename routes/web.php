@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PotholesController;
+
+
 // Admin
 use App\Http\Controllers\admin\PotholesController as AdminPotholesController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
@@ -30,10 +33,10 @@ Route::group([
 ], function () {
     Route::get('/', function () {
         if (auth()->user()->is_admin) {
-            return redirect()->route('admin.potholes.index');
+            return redirect()->route('admin.dashboard.index');
         }
 
-        return view('index');
+        return view('user.dashboard.index');
     })->name('dashboard');
 
     Route::get('/default_dashboard', function () {
