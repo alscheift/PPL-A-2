@@ -18,12 +18,24 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
             'role' => 'Admin',
+            'is_admin' => true,
+            'is_verified' => true,
         ]);
 
         User::create([
-            'name' => 'user',
-            'email' => 'user@gmail.com',
+            'name' => 'user_verified',
+            'email' => 'user1@gmail.com',
             'password' => bcrypt('12345678'),
+            'is_verified' => true,
         ]);
+
+        User::create([
+            'name' => 'user_unverified',
+            'email' => 'user2@gmail.com',
+            'password' => bcrypt('12345678'),
+            'is_verified' => false,
+        ]);
+
+        
     }
 }
