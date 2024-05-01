@@ -1,4 +1,62 @@
-<x-guest-layout>
+@php
+    $title = 'Sign In';
+@endphp
+
+@extends('layouts.guest-neptune')
+
+@section('content')
+<div class="app app-auth-sign-in align-content-stretch d-flex flex-wrap justify-content-end">
+    @session('status')
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ $value }}
+        </div>
+    @endsession
+    <div class="app-auth-background">
+
+    </div>
+    <div class="app-auth-container">
+        <div class="logo">
+            <a href="{{ route('dashboard') }}">{{ config('app.name') }}</a>
+        </div>
+        <p class="auth-description">Please sign-in to your account and continue to the dashboard.<br>Don't have an account? <a href="{{ route('register') }}">Sign Up</a></p>
+
+        <ul class="list-disc list-inside text-sm text-red-600">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+
+        @session('status')
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ $value }}
+            </div>
+        @endsession
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="auth-credentials m-b-xxl">
+                <label for="email" class="form-label" value="{{ __('Email Address') }}">Email Address</label>
+                <input type="email" class="form-control m-b-md" id="email" aria-describedby="signInEmail" name="email" :value="old('email')" placeholder="example@neptune.com" required autofocus>
+
+                <label for="password" class="form-label" value="{{ __('Password') }}">Password</label>
+                <input type="password" class="form-control" id="password" aria-describedby="signInPassword" name="password" required placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+            </div>
+
+            <div class="auth-submit">
+                <button class="btn btn-primary">{{ __('Sign in') }}</button>
+                @if (Route::has('password.request'))
+                <a class="auth-forgot-password float-end" href="{{ route('password.request') }}">
+                    {{ __('Forgot password?') }}
+                </a>
+                @endif
+            </div>
+        </form>
+
+    </div>
+</div>
+@endsection
+
+{{-- Jetstream Login --}}   
+{{-- <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -45,4 +103,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}

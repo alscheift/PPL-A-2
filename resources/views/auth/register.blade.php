@@ -1,4 +1,49 @@
-<x-guest-layout>
+@php
+    $title = 'Sign Up';
+@endphp
+
+@extends('layouts.guest-neptune')
+
+@section('content')
+    <div class="app app-auth-sign-up align-content-stretch d-flex flex-wrap justify-content-end">
+        <div class="app-auth-background">
+
+        </div>
+        <div class="app-auth-container">
+            <div class="logo">
+                <a href="{{ route('dashboard') }}">{{ config('app.name') }}</a>
+            </div>
+            <p class="auth-description">Please enter your credentials to create an account.<br>Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
+
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="auth-credentials m-b-xxl">
+                    <label for="name" class="form-label" value="{{ __('Name') }}">Name</label>
+                    <input type="text" class="form-control m-b-md" id="name" aria-describedby="signUpUsername" name="name" :value="old('name')" placeholder="Enter name" required autofocus>
+    
+                    <label for="email" class="form-label" value="{{ __('Email') }}">Email address</label>
+                    <input type="email" class="form-control m-b-md" id="email" aria-describedby="signUpEmail" name="email" :value="old('email')" placeholder="example@neptune.com" required>
+    
+                    <label for="password" class="form-label" value="{{ __('Password') }}">Password</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="signUpPassword" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                    <div id="emailHelp" class="form-text">Password must be minimum 8 characters length*</div>
+
+                    <label for="password_confirmation" class="form-label" value="{{ __('Confirm Password') }}">Confirm Password</label>
+                    <input type="password" class="form-control" id="password_confirmation" aria-describedby="signUpPassword" name="password_confirmation" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+                </div>
+
+                <div class="auth-submit">
+                    <button class="btn btn-primary">{{ __('Sign Up') }}</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+@endsection
+
+
+{{-- Jetstream Register --}}
+{{-- <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -57,4 +102,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}

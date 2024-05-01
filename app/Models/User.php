@@ -62,4 +62,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function Pothole()
+    {
+        return $this->hasMany(Pothole::class);
+    }
 }

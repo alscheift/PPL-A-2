@@ -1,0 +1,251 @@
+/* Contact 1 ---------------------------------- */ 
+.appoitment-form {
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: $white-color;
+        border: 1px solid $border-color;
+    }
+}
+
+.contact-feature {
+    &-wrap {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 24px;
+        border-top: 1px solid $border-color;
+        padding-top: 40px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: $white-color;
+    box-shadow: 0px 10px 30px rgba(8, 14, 28, 0.06);
+    border-radius: 5px;
+    .icon-btn {
+        background-color: $theme-color;
+        color: $white-color;
+        font-size: 24px;
+        box-shadow: 0px 6px 20px rgba(0, 96, 255, 0.6);
+        border-radius: 5px;
+        border: none;
+    }
+    &_label {
+        margin-bottom: 0;
+    }
+    &_link {
+        font-size: 20px;
+        font-weight: 600;
+        color: $title-color;
+        &:hover {
+            color: $theme-color;
+        }
+    }
+}
+
+@include xl {
+    .contact-feature {
+        padding: 20px;
+    }
+}
+
+@include sm {
+    .contact-feature {
+        &-wrap {
+            gap: 15px;
+        }
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@include xs {
+    .contact-feature {
+        &-wrap {
+            grid-template-columns: auto;
+        }
+        padding: 22px;
+    }
+}
+
+/* Quote Form faq page ----------------------- */
+.quote-form {
+    background: $white-color;
+    box-shadow: 0px 10px 30px rgba(8, 14, 28, 0.06);
+    border-radius: 5px;
+    padding: 50px;
+    @include xs {
+        padding: 40px 20px;
+    }
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: $smoke-color2;
+    }
+    .form-group {
+        > i {
+            background-color: $smoke-color2;
+            width: 18px;
+            text-align: right;
+        }
+    }
+}
+
+/* Contact Page ---------------------------------- */ 
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    box-shadow: 0px 4px 30px rgba(8, 14, 28, 0.08);
+    border-radius: 5px;
+    background-color: $white-color;
+    padding: 40px;
+    .box-title {
+        margin-bottom: 10px;
+    }
+    &_icon {
+        display: inline-block;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        line-height: 80px;
+        background-color: $theme-color;
+        color: $white-color;
+        text-align: center;
+        font-size: 40px;
+        position: relative;
+        box-shadow: 0px 6px 20px rgba(0, 96, 255, 0.6);
+        border-radius: 5px;
+    }
+    &_text {
+        min-width: 180px;
+        display: block;
+        margin-bottom: -0.5em;
+        font-family: $body-font;
+        span,
+        a {
+            display: block;
+            max-width: fit-content;
+        }
+        a {
+            color: $body-color;
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+.contact-form {
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: $white-color;
+    }
+    .form-group {
+        > i {
+            background-color: $white-color;
+            color: $theme-color;
+            width: 18px;
+            text-align: right;
+        }
+    }
+}
+
+.map-sec {
+    line-height: 0px;
+    iframe {
+        filter: grayscale(100);
+        height: 600px;
+        @include xl {
+            height: 450px;
+        }
+        @include xs {
+            height: 300px;
+        }
+    }
+}
+
+@include xs {
+    .contact-info {
+        padding: 30px;
+    }
+}
+@include vxs {
+    .contact-info {
+        flex-direction: column;
+    }
+}
+
+/* Appointment Area 3 ---------------------------------- */ 
+.appointment-area-wrapp {
+    background-color: $white-color;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-left: 50px;
+
+    @include lg {
+        margin: 0;
+    }
+
+
+    .title {
+        border-bottom: 1px solid #E4E6EA;
+        padding: 40px 50px 20px 50px;
+        margin-bottom: 0;
+    }
+}
+.appointment-form3 {
+    position: relative;
+    padding: 35px 50px 50px;
+    border-radius: 30px;
+    background-color: $white-color;
+
+    @include sm {
+        padding: 40px;
+    }
+
+    @include xs {
+        padding: 30px;
+    }
+
+    .form-group {
+
+        label {
+            color: $body-color;
+            font-size: 14px;
+        }
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        border: 1px solid #E4E6EA;
+        background-color: var(--white-color);
+        height: 50px;
+        border-radius: 5px;
+        
+    }
+
+
+    textarea.form-control,
+    textarea {
+        min-height: 120px;
+    }
+
+    .th-btn {
+        border-radius: 5px;
+    }
+}
