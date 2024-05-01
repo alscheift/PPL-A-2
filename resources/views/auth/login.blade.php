@@ -20,6 +20,17 @@
         </div>
         <p class="auth-description">Please sign-in to your account and continue to the dashboard.<br>Don't have an account? <a href="{{ route('register') }}">Sign Up</a></p>
 
+        <ul class="list-disc list-inside text-sm text-red-600">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+
+        @session('status')
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ $value }}
+            </div>
+        @endsession
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="auth-credentials m-b-xxl">
