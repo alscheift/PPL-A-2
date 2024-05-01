@@ -11,7 +11,7 @@ class PotholesController extends Controller
 {
     public function index()
     {
-        $potholes = Pothole::orderby('is_damaged', 'desc')->orderby('updated_at', 'desc')->get();
+        $potholes = Pothole::orderby('is_damaged', 'desc')->orderby('created_at', 'desc')->get();
         return view('user.potholes', compact('potholes'));
     }
 

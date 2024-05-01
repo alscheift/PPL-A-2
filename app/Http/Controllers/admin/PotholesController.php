@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pothole;
 use Illuminate\Http\Request;
 
 class PotholesController extends Controller
@@ -12,7 +13,16 @@ class PotholesController extends Controller
      */
     public function index()
     {
-        //
+        $potholes = Pothole::with([
+            'User'
+        ])->where([
+            ['is_damaged', "=", 1],
+            ['is_approved', "=", "Pending"]
+        ])->orderby('created_at', 'asc')->get();
+
+        return view('admin.potholes', [
+            'potholes' => $potholes,
+        ]);
     }
 
     /**
@@ -42,24 +52,32 @@ class PotholesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Pothole $pothole)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Pothole $pothole)
     {
-        //
+        $pothole->is_approved = "Approved";
+
+        $pothole->save();
+
+        return redirect()->route('admin.potholes.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Pothole $pothole)
     {
-        //
+        $pothole->is_approved = "Not Approved";
+
+        $pothole->save();
+
+        return redirect()->route('admin.potholes.index');
     }
 }
