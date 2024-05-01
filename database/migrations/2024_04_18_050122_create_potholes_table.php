@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->unsignedBigInteger('id_admin')->nullable();
-            $table->foreign('id_admin')->references('id')->on('users');
+            $table->unsignedBigInteger('id_verificator')->nullable();
+            $table->foreign('id_verificator')->references('id')->on('users');
             $table->enum("is_approved", ["Approved", "Not Approved", "Pending"])->default("Pending");
             $table->boolean('is_damaged')->default(false);
             $table->float('damage_percentage')->default(0);
