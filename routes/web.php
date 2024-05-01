@@ -76,7 +76,7 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.'
 ], function () {
-    Route::resource('potholes', PotholesController::class);
+    Route::resource('potholes', AdminPotholesController::class);
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::post('/user/{id}/verify', [UserController::class, 'verifyUser'])->name('users.verify');
     Route::resource('dashboard', AdminDashboardController::class);
