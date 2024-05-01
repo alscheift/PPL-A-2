@@ -74,6 +74,12 @@ class PotholesController extends Controller
         Pothole::create($data);
 
         // dd($data);
-        return redirect()->route('potholes.index')->with('success', 'Pothole reported successfully');
+        return redirect()->route('potholes.create', ['success' => 'true'])->with('success', 'Pothole reported successfully');
+    }
+
+    public function showForm()
+    {
+        $latestPothole = Pothole::latest()->first();
+        return view('form', compact('latestPothole'));
     }
 }

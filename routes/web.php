@@ -44,6 +44,8 @@ Route::group([
     Route::get('/potholes/create', [PotholesController::class, 'create'])->name('potholes.create');
     Route::post('/potholes', [PotholesController::class, 'store'])->name('potholes.store');
     Route::delete('potholes/{id}', [PotholesController::class, 'destroy'])->name('potholes.destroy');
+    Route::get('/potholes/create',[PotholesController::class, 'showForm'])->name('potholes.create');
+
 
     //Settings
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');

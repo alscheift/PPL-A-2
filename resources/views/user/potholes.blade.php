@@ -103,6 +103,7 @@
                                         <th>Date</th>
                                         <th>Latitude</th>
                                         <th>Longitude</th>
+                                        <th>Address</th>
                                         <th>Description</th>
                                         <th>Status</th>
                                         {{-- <th>Verificator</th> --}}

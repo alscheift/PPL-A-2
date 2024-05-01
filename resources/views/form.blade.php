@@ -53,6 +53,44 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Berhasil mengirimkan laporan</h5>
+                    <button type="button" class="close" id="closeSuccessModal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Latitude:</strong> {{ $latestPothole->lat }}</p>
+                    <p><strong>Longitude:</strong> {{ $latestPothole->long }}</p>
+                    <p><strong>Alamat:</strong> {{ $latestPothole->address }}</p>
+                    <p><strong>Deskripsi:</strong> {{ $latestPothole->desc }}</p>
+                    <p><strong>Kondisi:</strong> 
+                        @if($latestPothole->is_damaged)
+                            <span class="badge badge-danger">Rusak</span>
+                        @else
+                            <span class="badge badge-success">Tidak Rusak</span>
+                        @endif
+                    </p>
+                    <p><strong>Presentase Kerusakan:</strong>
+                        @if($latestPothole->is_damaged)
+                            {{ $latestPothole->damage_percentage }}%
+                        @else
+                            -
+                        @endif
+                    </p>
+                    <p><strong>Image:</strong></p>
+                    <img src="{{ $latestPothole->is_damaged ? $latestPothole->getSegmentedImageAttribute() : Storage::url($latestPothole->image) }}" alt="Uploaded Image" style="max-width: 100%; max-height: 200px;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('pagescripts')
@@ -98,5 +136,25 @@
         }
 
         map.on('click', onMapClick);
+    </script>
+    <script>
+        $(document).ready(function(){
+            // Cek jika terdapat parameter 'success' pada URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const successParam = urlParams.get('success');
+            // Jika terdapat parameter 'success' dan nilainya 'true', tampilkan modal
+            if (successParam && successParam === 'true') {
+                $('#successModal').modal('show');
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('closeButton').addEventListener('click', function() {
+            $('#successModal').modal('hide');
+        });
+        // Menutup modal saat tombol close pada header modal ditekan
+        document.getElementById('closeSuccessModal').addEventListener('click', function() {
+            $('#successModal').modal('hide');
+        });
     </script>
 @endsection
