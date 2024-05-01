@@ -14,16 +14,18 @@ Route::get('/laravel_version', function () {
 });
 
 // Auth Route
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    // Route::get('/', function () {
-    //     return view('index');
-    // })->name('dashboard');;
+Route::group([
+    'middleware' => [
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
+    
+    ],
+    'prefix' => 'dashboard'
+], function () {
+    Route::get('/', function () {
 
-    Route::get('/dashboard', function () {
+
         return view('index');
     })->name('dashboard');
 
@@ -38,7 +40,6 @@ Route::middleware([
 
     //Settings
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
-
 });
 
 Route::get('/new-signin', function () {
@@ -52,3 +53,16 @@ Route::get('/new-signup', function () {
 // Route::get('/home', function () {
 //     return view('home');
 // });
+
+Route::group([
+    'middleware' => [
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
+        'admin'
+    ],
+    'prefix' => 'admin',
+    'as' => 'admin.'
+], function () {
+    Route::resource('potholes', PotholesController::class);
+});
