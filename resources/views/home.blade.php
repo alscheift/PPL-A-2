@@ -143,15 +143,15 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="col-auto d-none d-lg-block">
-                        <div class="header-button">
-                            @auth <!-- Tampilkan ucapan selamat datang -->
-                            <span class="welcome-message">Selamat datang, {{ Auth::user()->name }}!</span>
-                            @else <!-- Tampilkan tombol "Sign Up" jika pengguna belum login -->
-                                <a href="{{ route("register") }}" class="th-btn shadow-none">Sign Up <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="{{ route("login") }}" class="th-btn shadow-none">Login <i class="fas fa-arrow-right ms-2"></i></a>
-                            @endauth
-                        </div>
+                        <div class="col-auto">
+                            <div class="header-button">
+                                @auth <!-- Tampilkan ucapan selamat datang -->
+                                <span class="welcome-message" onclick="window.location.href='{{ route('dashboard') }}'">Selamat datang, {{ Auth::user()->name }}!</span>
+                                @else <!-- Tampilkan tombol "Sign Up" jika pengguna belum login -->
+                                    <a href="{{ route("register") }}" class="btn btn-primary shadow-none">Sign Up</a>
+                                    <a href="{{ route("login") }}" class="btn btn-outline-primary shadow-none">Login</a>
+                                @endauth
+                            </div>
                         </div>
                     </div>
                 </div>
