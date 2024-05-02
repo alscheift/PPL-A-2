@@ -5,7 +5,8 @@
         <a href="{{ route('settings.index') }}">
             <img src="https://i.postimg.cc/TwwQgYKS/avatar.png">
             <span class="activity-indicator"></span>
-            <span class="user-info-text">{{ Auth::user()->name }}<br><span class="user-state-info">{{ Auth::user()->is_admin ? "Admin" : "User" }}</span></span>
+            <span class="user-info-text">{{ Auth::user()->name }}<br><span
+                    class="user-state-info">{{ Auth::user()->is_admin ? 'Admin' : 'User' }}</span></span>
         </a>
     </div>
 </div>
@@ -14,8 +15,9 @@
         <li class="sidebar-title">
             Apps
         </li>
-        <li class="{{ request()->is('dashboard*') ? 'active-page' : '' }}">
-            <a href="/dashboard" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+        <li class="{{ request()->is('dashboard') ? 'active-page' : '' }}">
+            <a href="/dashboard" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i
+                    class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
         <li class="{{ request()->is('potholes/create') ? 'active-page' : '' }}">
             <a href="{{ route('potholes.create') }}"><i class="material-icons-two-tone">add_circle</i>Lapor Pothole</a>
@@ -23,6 +25,15 @@
         <li class="{{ request()->is('potholes') ? 'active-page' : '' }}">
             <a href="{{ route('potholes.store') }}"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
         </li>
+        @can('admin')
+            <li class="{{ request()->is('admin/users*') ? 'active-page' : '' }}">
+                <a href="{{ route('admin.users.index') }}"><i class="material-icons-two-tone">people</i>Users</a>
+            </li>
+            <li class="{{ request()->is('admin/admin-potholes*') ? 'active-page' : '' }}">
+                <a href="{{ route('admin.admin-potholes.index') }}"><i class="material-icons-two-tone">history</i>Approval
+                    Aduan</a>
+            </li>
+        @endcan
         {{-- <li>
             <a href="#"><i class="material-icons-two-tone">cloud_queue</i>File Manager</a>
         </li>
@@ -63,7 +74,7 @@
                 </li>
             </ul>
         </li> --}}
-        <li class="{{ request()->is('settings*') ? 'active-page' : '' }}">
+        <li class="{{ request()->is('/dashboard/settings*') ? 'active-page' : '' }}">
             <a href="{{ route('settings.index') }}"><i class="material-icons-two-tone">settings</i>Settings</a>
         </li>
 
@@ -72,8 +83,7 @@
             <form method="POST" action="{{ route('logout') }}" x-data>
                 @csrf
 
-                <x-dropdown-link href="{{ route('logout') }}"
-                         @click.prevent="$root.submit();">
+                <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
                     {{ __('Log Out') }}
                 </x-dropdown-link>
             </form>

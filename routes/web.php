@@ -31,10 +31,6 @@ Route::group([
     'prefix' => 'dashboard'
 ], function () {
     Route::get('/', function () {
-        if (auth()->user()->is_admin) {
-            return redirect()->route('admin.dashboard.index');
-        }
-
         return view('user.Dashboard.index');
     })->name('dashboard');
 
@@ -51,6 +47,21 @@ Route::group([
 
     //Settings
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+
+    Route::group([
+        'middleware' => [
+            'auth:sanctum',
+            config('jetstream.auth_session'),
+            'verified',
+            'admin'
+        ],
+        'as' => 'admin.'
+    ], function () {
+        Route::resource('admin-potholes', AdminPotholesController::class);
+        Route::get('/users', [AdminUsersController::class, 'index'])->name('users.index');
+        Route::post('/user/{id}/verify', [AdminUsersController::class, 'verifyUser'])->name('users.verify');
+        Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
+    });
 });
 
 Route::get('/new-signin', function () {
@@ -65,18 +76,4 @@ Route::get('/new-signup', function () {
 //     return view('home');
 // });
 
-Route::group([
-    'middleware' => [
-        'auth:sanctum',
-        config('jetstream.auth_session'),
-        'verified',
-        'admin'
-    ],
-    'prefix' => 'admin',
-    'as' => 'admin.'
-], function () {
-    Route::resource('potholes', AdminPotholesController::class);
-    Route::get('/users', [AdminUsersController::class, 'index'])->name('users.index');
-    Route::post('/user/{id}/verify', [AdminUsersController::class, 'verifyUser'])->name('users.verify');
-    Route::resource('dashboard', AdminDashboardController::class);
-});
+

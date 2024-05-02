@@ -60,24 +60,24 @@ class PotholesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pothole $pothole)
+    public function update(Request $request, Pothole $admin_pothole)
     {
-        $pothole->is_approved = "Approved";
+        $admin_pothole->is_approved = "Approved";
 
-        $pothole->save();
+        $admin_pothole->save();
 
-        return redirect()->route('admin.potholes.index');
+        return redirect()->route('admin.admin-potholes.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pothole $pothole)
+    public function destroy(Pothole $admin_pothole)
     {
-        $pothole->is_approved = "Not Approved";
+        $admin_pothole->is_approved = "Not Approved";
 
-        $pothole->save();
+        $admin_pothole->save();
 
-        return redirect()->route('admin.potholes.index');
+        return redirect()->route('admin.admin-potholes.index');
     }
 }

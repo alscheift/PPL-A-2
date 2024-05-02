@@ -59,9 +59,17 @@
                                                 </div>
                                             </td>
                                             <td>
+                                                <form id="deleteForm{{ $pothole->id }}"
+                                                    action="{{ route('admin.admin-potholes.update', $pothole->id) }}"
+                                                    method="POST" style="display: inline-block;">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="button" class="btn btn-success acc-pothole"
+                                                        data-toggle="tooltip" data-placement="top" title="Delete">Y</button>
+                                                </form>
                                                 <div class="invoice-info-actions">
                                                     <form id="deleteForm{{ $pothole->id }}"
-                                                        action="{{ route('admin.potholes.destroy', $pothole->id) }}"
+                                                        action="{{ route('admin.admin-potholes.destroy', $pothole->id) }}"
                                                         method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
@@ -69,15 +77,7 @@
                                                             data-toggle="tooltip" data-placement="top"
                                                             title="Delete">N</button>
                                                     </form>
-                                                    <form id="deleteForm{{ $pothole->id }}"
-                                                        action="{{ route('admin.potholes.update', $pothole->id) }}"
-                                                        method="POST" style="display: inline-block;">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <button type="button" class="btn btn-success acc-pothole"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            title="Delete">Y</button>
-                                                    </form>
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -133,8 +133,6 @@
                 $('#imageModal').modal('show');
             });
         });
-
-        
     </script>
     <script>
         // Fungsi untuk mengkonfirmasi penghapusan pothole

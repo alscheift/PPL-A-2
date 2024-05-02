@@ -48,11 +48,7 @@
 <body>
     <div class="app align-content-stretch d-flex flex-wrap">
         <div class="app-sidebar">
-          @can('admin')
-            @include('components.admin-sidebar')
-        @else
             @include('components.sidebar')
-        @endcan
         </div>
         <div class="app-container">
             <div class="search">

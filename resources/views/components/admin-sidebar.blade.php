@@ -26,12 +26,7 @@
             <a href="{{ route('potholes.store') }}"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
         </li>
         {{-- Users --}}
-        <li class="{{ request()->is('admin/users*') ? 'active-page' : '' }}">
-            <a href="{{ route('admin.users.index') }}"><i class="material-icons-two-tone">people</i>Users</a>
-        </li>
-        <li class="{{ request()->is('admin/potholes*') ? 'active-page' : '' }}">
-            <a href="{{ route('admin.potholes.index') }}"><i class="material-icons-two-tone">history</i>Approval Aduan</a>
-        </li>
+
         {{-- <li>
             <a href="#"><i class="material-icons-two-tone">cloud_queue</i>File Manager</a>
         </li>
