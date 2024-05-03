@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use App\Models\Pothole;
-use App\Models\User;
 use App\Actions\ML\RoadSegmentation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PotholesController extends Controller
@@ -14,7 +12,7 @@ class PotholesController extends Controller
     public function index()
     {
         $potholes = Pothole::orderby('is_damaged', 'desc')->orderby('created_at', 'desc')->get();
-        return view('user.potholes', compact('potholes'));
+        return view('user.potholes.index', compact('potholes'));
     }
 
     public function showMap()
@@ -34,9 +32,15 @@ class PotholesController extends Controller
         return redirect()->route('potholes.index')->with('success', 'Pothole deleted successfully');
     }
 
-    public function create()
-    {
-        return view('form');
+    public function create(Request $request)
+    {   
+        $success = $request->get('success'); 
+        if($success){
+            $latestPothole = Pothole::where('id_user', Auth::id())->latest()->first(); // jika akses create dengan submit sebelumnya, menampilkan hasil
+        } else { 
+            $latestPothole = NULL; 
+        }
+        return view('user.potholes.create', compact('latestPothole'));
     }
 
     public function store()
@@ -73,13 +77,6 @@ class PotholesController extends Controller
 
         Pothole::create($data);
 
-        // dd($data);
-        return redirect()->route('potholes.create', ['success' => 'true'])->with('success', 'Pothole reported successfully');
-    }
-
-    public function showForm()
-    {
-        $latestPothole = Pothole::latest()->first();
-        return view('form', compact('latestPothole'));
+        return redirect()->route('potholes.create')->with('success', 'true'); // success jgn diubah, digunakan untuk menampilkan hasil submit
     }
 }

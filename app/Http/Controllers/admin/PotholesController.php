@@ -20,7 +20,7 @@ class PotholesController extends Controller
             ['is_approved', "=", "Pending"]
         ])->orderby('created_at', 'asc')->get();
 
-        return view('admin.potholes', [
+        return view('admin.potholesapproval.index', [
             'potholes' => $potholes,
         ]);
     }
@@ -78,6 +78,6 @@ class PotholesController extends Controller
 
         $admin_pothole->save();
 
-        return redirect()->route('admin.admin-potholes.index');
+        return redirect()->route('admin.potholesapproval.index');
     }
 }
