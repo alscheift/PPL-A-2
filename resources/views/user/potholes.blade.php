@@ -185,6 +185,8 @@
             potholeMap.setView([lat, lng], 15);
             // Tampilkan modal
             $('#mapModal').modal('show');
+            setTimeout(function(){ potholeMap.invalidateSize()}, 0x18F);
+
         });
     });
 </script>
