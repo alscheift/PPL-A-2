@@ -41,7 +41,7 @@
                                         <th>Description</th>
                                         <th>Status</th>
                                         {{-- <th>Verificator</th> --}}
-                                        <th>%</th>
+                                        {{-- <th>%</th> --}}
                                         <th>Verified</th>
                                         <th>Action</th>
                                     </tr>
@@ -62,13 +62,13 @@
                                                     <span class="badge badge-success">Not Damaged</span>
                                                 @endif
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 @if($pothole->is_damaged)
                                                     {{ $pothole->damage_percentage }}%
                                                 @else
                                                     -
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 @if($pothole->is_approved == 'Approved')
                                                     <span class="badge badge-success">Approved</span>
@@ -107,7 +107,7 @@
                                         <th>Description</th>
                                         <th>Status</th>
                                         {{-- <th>Verificator</th> --}}
-                                        <th>%</th>
+                                        {{-- <th>%</th> --}}
                                         <th>Verified</th>
                                         <th>Action</th>
                                     </tr>

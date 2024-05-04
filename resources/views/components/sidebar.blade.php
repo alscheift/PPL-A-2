@@ -19,17 +19,17 @@
             <a href="/dashboard" class="{{ request()->is('dashboard*') ? 'active' : '' }}"><i
                     class="material-icons-two-tone">dashboard</i>Dashboard</a>
         </li>
-        <li class="{{ request()->is('potholes/create') ? 'active-page' : '' }}">
+        <li class="{{ request()->is('dashboard/potholes/create') ? 'active-page' : '' }}">
             <a href="{{ route('potholes.create') }}"><i class="material-icons-two-tone">add_circle</i>Lapor Pothole</a>
         </li>
-        <li class="{{ request()->is('potholes') ? 'active-page' : '' }}">
+        <li class="{{ request()->is('dashboard/potholes') ? 'active-page' : '' }}">
             <a href="{{ route('potholes.store') }}"><i class="material-icons-two-tone">history</i>Riwayat Lapor</a>
         </li>
         @can('admin')
-            <li class="{{ request()->is('admin/users*') ? 'active-page' : '' }}">
+            <li class="{{ request()->is('dashboard/users*') ? 'active-page' : '' }}">
                 <a href="{{ route('admin.users.index') }}"><i class="material-icons-two-tone">people</i>Users</a>
             </li>
-            <li class="{{ request()->is('admin/admin-potholes*') ? 'active-page' : '' }}">
+            <li class="{{ request()->is('dashboard/admin-potholes*') ? 'active-page' : '' }}">
                 <a href="{{ route('admin.admin-potholes.index') }}"><i class="material-icons-two-tone">history</i>Approval
                     Aduan</a>
             </li>
@@ -74,7 +74,7 @@
                 </li>
             </ul>
         </li> --}}
-        <li class="{{ request()->is('/dashboard/settings*') ? 'active-page' : '' }}">
+        <li class="{{ request()->is('dashboard/settings*') ? 'active-page' : '' }}">
             <a href="{{ route('settings.index') }}"><i class="material-icons-two-tone">settings</i>Settings</a>
         </li>
 
