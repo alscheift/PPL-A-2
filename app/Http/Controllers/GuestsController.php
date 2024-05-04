@@ -7,7 +7,7 @@ class GuestsController extends Controller
 {
     public function index()
     {
-        $potholes = Pothole::select('lat', 'long', 'desc', 'is_damaged', 'address', 'is_approved')->get(); // Mengambil data latitude dan longitude dari database potholes
+        $potholes = Pothole::select('lat', 'long', 'desc', 'is_damaged', 'address', 'is_approved', 'segmented_image_path')->get(); // Mengambil data latitude dan longitude dari database potholes
         return view('guest.home', compact('potholes'));
     }
 }

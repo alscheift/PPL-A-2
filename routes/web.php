@@ -10,7 +10,7 @@ use App\Http\Controllers\DashboardController;
 // Admin
 use App\Http\Controllers\admin\PotholesController as AdminPotholesController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\admin\UserController as AdminUsersController;
+use App\Http\Controllers\admin\UsersController as AdminUsersController;
 
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 

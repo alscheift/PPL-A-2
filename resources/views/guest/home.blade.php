@@ -538,13 +538,26 @@ Process Area
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Ambil data pothole dari database dan tambahkan marker ke peta
+        var myIcon = L.icon({
+            iconUrl: 'https://i.postimg.cc/bJWg7MTf/Untitled-2.png',
+            iconSize: [62, 93], // Sesuaikan dengan ukuran ikon Anda
+        });
+
         @foreach($potholes as $pothole)
-            @if($pothole->is_damaged == 1 && $pothole->is_approved == 'Approved')
-                L.marker([{{ $pothole->lat }}, {{ $pothole->long }}]).addTo(map)
-                    .bindPopup('Deskripsi: {{ $pothole->desc }} <br> Alamat: {{ $pothole->address }}'); // Ganti description sesuai dengan atribut yang sesuai di database
-            @endif
-        @endforeach
+        @if($pothole->is_damaged == 1 && $pothole->is_approved == 'Approved')
+            // Membuat string yang berisi tag img dengan src dari segmented_image_path
+            var popupContent = '<div><strong>Deskripsi:</strong> {{ $pothole->desc }}</div>' +
+                            '<div><strong>Alamat:</strong> {{ $pothole->address }}</div>' +
+                            '<div><strong>Kondisi Jalan:</strong> </div>' +
+                            '<img src="{{ 'http://34.128.72.61:8080/result/' . $pothole->segmented_image_path }}" alt="Segmented Image" style="max-width: 100%;">'
+
+
+            // Menambah marker ke peta dengan popup yang berisi deskripsi, alamat, dan gambar
+            L.marker([{{ $pothole->lat }}, {{ $pothole->long }}], { icon: myIcon }).addTo(map)
+                .bindPopup(popupContent);
+        @endif
+    @endforeach
+
     </script>
 </body>
 

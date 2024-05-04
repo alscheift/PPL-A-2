@@ -76,13 +76,13 @@
                             <span class="badge badge-success">Tidak Rusak</span>
                         @endif
                     </p>
-                    <p><strong>Presentase Kerusakan:</strong>
+                    {{-- <p><strong>Presentase Kerusakan:</strong>
                         @if($latestPothole->is_damaged)
                             {{ $latestPothole->damage_percentage }}%
                         @else
                             -
                         @endif
-                    </p>
+                    </p> --}}
                     <p><strong>Image:</strong></p>
                     <img src="{{ $latestPothole->is_damaged ? $latestPothole->getSegmentedImageAttribute() : Storage::url($latestPothole->image) }}" alt="Uploaded Image" style="max-width: 100%; max-height: 200px;">
                 </div>
