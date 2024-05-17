@@ -538,6 +538,16 @@ Process Area
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        // https://github.com/pointhi/leaflet-color-markers
+        var redIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        
         var myIcon = L.icon({
             iconUrl: 'https://i.postimg.cc/bJWg7MTf/Untitled-2.png',
             iconSize: [62, 93], // Sesuaikan dengan ukuran ikon Anda
@@ -553,7 +563,7 @@ Process Area
 
 
             // Menambah marker ke peta dengan popup yang berisi deskripsi, alamat, dan gambar
-            L.marker([{{ $pothole->lat }}, {{ $pothole->long }}], { icon: myIcon }).addTo(map)
+            L.marker([{{ $pothole->lat }}, {{ $pothole->long }}], { icon: redIcon }).addTo(map)
                 .bindPopup(popupContent);
         @endif
     @endforeach

@@ -170,6 +170,16 @@
 </script>
 <script>
     // Siapkan peta Leaflet
+
+    var redIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+    });
+
     const potholeMap = L.map('potholeMap').setView([0, 0], 15); // Koordinat default diatur ke (0, 0)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -181,7 +191,7 @@
             const lat = parseFloat(this.dataset.lat); // Ambil latitude dari atribut data
             const lng = parseFloat(this.dataset.lng); // Ambil longitude dari atribut data
             // Atur posisi marker
-            L.marker([lat, lng]).addTo(potholeMap).bindPopup('Pothole Location').openPopup();
+            L.marker([lat, lng], {icon: redIcon}).addTo(potholeMap).bindPopup('Pothole Location').openPopup();
             potholeMap.setView([lat, lng], 15);
             // Tampilkan modal
             $('#mapModal').modal('show');
